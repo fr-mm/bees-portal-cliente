@@ -20,4 +20,4 @@ class Parcela {
   }
 }
 
-module.exports = Parcela;
+export default Parcela;

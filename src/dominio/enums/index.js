@@ -1,4 +1,4 @@
-module.exports = {
-  tipoDeBuscaDeCliente: require("./tipoDeBuscaDeClienteEnum"),
-  statusDeParcela: require("./statusDeParcelaEnum"),
-};
+import statusDeParcelaEnum from "./statusDeParcelaEnum";
+import tipoDeBuscaDeClienteEnum from "./tipoDeBuscaDeClienteEnum";
+
+export { statusDeParcelaEnum, tipoDeBuscaDeClienteEnum };

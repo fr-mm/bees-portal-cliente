@@ -6,7 +6,7 @@ class Contrato {
   /**
    * @param {{
    * numero: string,
-   * parcelas: ParcelasDeContrato,
+   * parcelas: Parcelas,
    * valor: ValorDeContrato
    * }}
    */
@@ -17,4 +17,4 @@ class Contrato {
   }
 }
 
-module.exports = Contrato;
+export default Contrato;

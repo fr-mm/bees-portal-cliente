@@ -8,4 +8,4 @@ class BuscarClienteOTDEntrada {
   }
 }
 
-module.exports = BuscarClienteOTDEntrada;
+export default BuscarClienteOTDEntrada;

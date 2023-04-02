@@ -6,15 +6,15 @@ class ValorDeContrato {
   /**
    * @param {{
    * total: number,
-   * emAtraso: number,
-   * emAberto: number
+   * inadimplentes: number,
+   * aVencer: number
    * }}
    */
-  constructor({ total, emAtraso, emAberto }) {
+  constructor({ total, inadimplentes: emAtraso, aVencer: emAberto }) {
     this.total = total;
     this.emAtraso = emAtraso;
     this.emAberto = emAberto;
   }
 }
 
-module.exports = ValorDeContrato;
+export default ValorDeContrato;
