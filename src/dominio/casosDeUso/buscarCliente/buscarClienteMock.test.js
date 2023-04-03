@@ -1,6 +1,8 @@
 import BuscarClienteMock from "./buscarCienteMock";
 import { atributosPreenchidos } from "../../../auxiliar";
 
+import container from "../../container";
+
 describe("BuscarClienteMock", () => {
   describe(".executar", () => {
     test("retorna otd preenchido", async () => {
