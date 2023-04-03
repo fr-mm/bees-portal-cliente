@@ -1,5 +1,5 @@
 import BuscarClienteMock from "./buscarCienteMock";
-import { atributosPreenchidos } from "../../../aux";
+import { atributosPreenchidos } from "../../../auxiliar";
 
 describe("BuscarClienteMock", () => {
   describe(".executar", () => {
