@@ -6,7 +6,7 @@ import Parcela from "../../otds/buscarClienteOTD/parcela";
 import Parcelas from "../../otds/buscarClienteOTD/parcelas";
 import Cliente from "../../otds/buscarClienteOTD/cliente";
 
-class BuscarClienteMock {
+export default class BuscarClienteMock {
   #faker;
   #contratos = 2;
 
@@ -122,5 +122,3 @@ class BuscarClienteMock {
     return parseInt(this.#faker.datatype.number({ min, max })).toString();
   }
 }
-
-module.exports = BuscarClienteMock;

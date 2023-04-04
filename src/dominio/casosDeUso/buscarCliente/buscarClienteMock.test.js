@@ -1,7 +1,5 @@
-import BuscarClienteMock from "./buscarCienteMock";
+import BuscarClienteMock from "./buscarClienteMock";
 import { atributosPreenchidos } from "../../../auxiliar";
-
-import container from "../../container";
 
 describe("BuscarClienteMock", () => {
   describe(".executar", () => {
@@ -13,7 +11,7 @@ describe("BuscarClienteMock", () => {
       const todoPreenchido = atributosPreenchidos(otd);
 
       if (!todoPreenchido) {
-        console.dir(otd, { depth: null });
+        //console.dir(otd, { depth: null });
       }
       expect(todoPreenchido).toBeTruthy();
     });
