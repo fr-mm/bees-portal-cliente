@@ -1,0 +1,39 @@
+.container-oferta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+}
+.container-alert {
+    background-color: #FFDEDE;
+    height: 3.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-alert p {
+    
+    color: #C9201D;
+    font-family: "Work Sans";
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+.container-principal{
+    padding-left: 6.25rem;
+    padding-right: 6.25rem;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.titulo-nome-cliente{
+    color: rgba(0,0,0,0.9);
+  font-family: Barlow;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 32px;
+}
