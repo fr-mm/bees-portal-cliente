@@ -1,8 +1,10 @@
 .container-header {
     display: flex;
 
-    width: 100vw;
     height: 5rem;
+    width: 100vw;
+    
+    position: fixed;
 
     padding-left: 3em;
     padding-right: 3em;
