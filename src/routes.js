@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from './pages/Home'
+import Oferta from "./pages/Oferta";
 
 
 export default function MyRoutes() {
@@ -7,7 +8,8 @@ export default function MyRoutes() {
         <>
         <Routes>
             <Route path="/" element={<Home />}/>
-        </Routes>        
+            <Route path="/oferta" element={<Oferta/>}/>
+        </Routes>         
         </>
     );
   }

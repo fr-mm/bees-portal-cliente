@@ -1,20 +1,17 @@
 import "./styles.css";
 import Header from "../../componentes/Header";
 import Footer from "../../componentes/Footer";
+import ShowOferta from "../../componentes/showOferta";
 
-
-
-
-function App() {
+function Oferta() {
  
-  
   return (
     <div className="container">
-      <Header/>
-    <h1>teste</h1>
-    <Footer/>
+        <Header />
+        <ShowOferta/>
+        <Footer/>
     </div>
   );
 }
 
-export default App;
+export default Oferta;
