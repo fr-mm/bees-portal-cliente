@@ -1,0 +1,53 @@
+
+.container_tabela{
+    width: 60%;
+    box-sizing: border-box;
+    height: 288px;
+    
+    border: 1px solid #C6C1CF;
+    border-radius: 8px;
+   
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    padding-left: 2rem;
+    
+}
+.container_tabela h1{
+    color: #424242;
+  font-family: "Work Sans";
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+}
+table {
+    border-collapse: collapse;
+  width: 90%;
+  margin-left: 2rem;
+  
+  max-height: 20%;
+  max-height: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  thead {
+    
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 7px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  tbody{
+    max-height: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  th {
+  
+  }
