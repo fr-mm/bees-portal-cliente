@@ -7,8 +7,7 @@
     background-color: #000;
     width: 100vw;
     height: 23rem;
-    position: absolute;
-    bottom: 0;
+    
     padding-top: 4.25rem;
     padding-left: 4rem;
     padding-right: 4rem;
@@ -42,6 +41,7 @@
   font-weight: 600;
   letter-spacing: 0;
   line-height: 24px;
+   margin-bottom: 1rem;
 }
 .paragrafo-squad{
    

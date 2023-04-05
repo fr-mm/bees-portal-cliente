@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    
+    justify-content: space-around;
 }
 .container-alert {
     background-color: #FFDEDE;
@@ -36,4 +36,57 @@
   font-weight: 600;
   letter-spacing: 0;
   line-height: 32px;
+  margin-left: 4rem;
+  margin-top: 2.5rem;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.space-between{
+    justify-content: space-between;
+    margin: 0 0  1rem 0;
+}
+.container-icone {
+    margin-bottom: 2rem;
+}
+.container-icone img{
+    height: 3rem;
+  width: 1.8rem;
+}
+.container-icone h2{
+    color: rgba(0,0,0,0.9);
+    font-family: Barlow;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.linha {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   padding-bottom: 1rem;
+}
+.desc-oferta{
+    color: #424242;
+  font-family: "Work Sans";
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+}
+.numero_contrato{
+    color: rgba(0,0,0,0.9);
+    font-family: Barlow;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.numero_parcela_atraso{
+    color: #C9201D;
+    font-family: Barlow;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 24px;
 }

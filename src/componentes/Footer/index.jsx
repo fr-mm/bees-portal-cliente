@@ -29,6 +29,7 @@ function Footer() {
                     <h1 className="titulo-squad">
                         Dúvidas
                     </h1>
+                    
                     <p className="paragrafo-squad">
                         Ligue para Central de Atendimento Parceiro
                         BEES Tel: 0800-887-1111
