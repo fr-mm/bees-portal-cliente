@@ -1,7 +1,7 @@
 import "./styles.css";
 import Header from "../../componentes/Header";
 import Footer from "../../componentes/Footer";
-import {useState, useTransition} from "react";
+import {useState} from "react";
 
 function Home() {
  const [currentTestimonial, setCurrentTestimonial] = useState({
@@ -86,8 +86,7 @@ function pastTestimonial(currentTestimonial) {
 }
 
 function buttonTestimonial(current){
-  const testimonialTextList = testimonials.map((item) => item.title);
-  testimonials[current].styl = {fontWeight: "bold", color: "black"};
+ 
   setCurrentTestimonial(testimonials[current])
 }
   return (
