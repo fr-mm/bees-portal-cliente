@@ -2,42 +2,67 @@ import "./styles.css"
 const arrMock = [
     {
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     },
     {
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     }
     , {
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     },
     {
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     }
     ,
     {
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     },
     {
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     }
     ,{
         nome: "pedro",
-        status: "gay",
+        status: "valido",
         valor: 1
     },{
         nome: "pedro",
-        status: "gay",
+        status: "valido",
+        valor: 1
+    },
+    {
+        nome: "pedro",
+        status: "valido",
+        valor: 1
+    }
+    ,
+    {
+        nome: "pedro",
+        status: "valido",
+        valor: 1
+    },
+    {
+        nome: "pedro",
+        status: "valido",
+        valor: 1
+    }
+    ,{
+        nome: "pedro",
+        status: "valido",
+        valor: 1
+    },{
+        nome: "pedro",
+        status: "valido",
         valor: 1
     }
 ]
@@ -45,8 +70,9 @@ function TabelaParcelas() {
     return (
 
 
-        <div className="container_tabela">
-            <h1>Detalhes das parcelas</h1>
+        <div class="container_tabela">
+        <h1>Detalhes das parcelas</h1>
+        <div class="tabela-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -70,6 +96,7 @@ function TabelaParcelas() {
                 </tbody>
             </table>
         </div>
+    </div>
 
 
     )
