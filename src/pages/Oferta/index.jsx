@@ -6,7 +6,7 @@ import ShowOferta from "../../componentes/showOferta";
 function Oferta() {
  
   return (
-    <div className="container">
+    <div >
         <Header />
         <ShowOferta/>
         <Footer/>

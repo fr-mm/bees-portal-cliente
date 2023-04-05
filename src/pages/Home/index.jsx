@@ -117,6 +117,7 @@ function buttonTestimonial(current){
             </div>
             </div>
           </div>
+
         </div>
         <div className="scream-beneficios">
           <h2>Quais são os benefícios?</h2>
@@ -141,6 +142,7 @@ function buttonTestimonial(current){
             <img id="img-beneficios" src={currentTestimonial.img} alt="img"/>
           </div>
         </div>
+
         </div>
         <Footer/>
     </div>
