@@ -55,10 +55,13 @@
 .container-radio-home {
     display: flex;
 
-    width: 16rem;
+    width: 17rem;
 
     justify-content: space-between;
 
+}
+#radio-home{
+    cursor: pointer;
 }
 .box-radio {
     display: flex;
