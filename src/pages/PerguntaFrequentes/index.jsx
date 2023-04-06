@@ -5,19 +5,19 @@ import {useState} from "react";
 
 function PerguntasFrequentes() {
   const [textPerguntas1, setTextPerguntas1] = useState({
-    validation: true, 
+    validation: false, 
     img:"/img/iconDown.svg"
   });
   const [textPerguntas2, setTextPerguntas2] = useState({
-    validation: true, 
+    validation: false, 
     img:"/img/iconDown.svg"
   });
   const [textPerguntas3, setTextPerguntas3] = useState({
-    validation: true, 
+    validation: false, 
     img:"/img/iconDown.svg"
   });
   const [textPerguntas4, setTextPerguntas4] = useState({
-    validation: true, 
+    validation: false, 
     img:"/img/iconDown.svg"
   });
 
@@ -27,7 +27,7 @@ function PerguntasFrequentes() {
     if(current === 1){
       textPerguntas1.validation = textPerguntas1.validation ? false : true;
       
-      textPerguntas1.validation ? textPerguntas1.img = "/img/iconDown.svg" : textPerguntas1.img = "/img/iconUp.svg";
+      textPerguntas1.validation ? textPerguntas1.img = "/img/iconUp.svg" : textPerguntas1.img = "/img/iconDown.svg";
       const {...desestrutuctionObj} = textPerguntas1;    
       setTextPerguntas1(desestrutuctionObj)
     }
@@ -35,7 +35,7 @@ function PerguntasFrequentes() {
     if(current === 2){
       textPerguntas2.validation = textPerguntas2.validation ? false : true;
       
-      textPerguntas2.validation ? textPerguntas2.img = "/img/iconDown.svg" : textPerguntas2.img = "/img/iconUp.svg";
+      textPerguntas2.validation ? textPerguntas2.img = "/img/iconUp.svg" : textPerguntas2.img = "/img/iconDown.svg";
       const {...desestrutuctionObj} = textPerguntas2;    
       setTextPerguntas2(desestrutuctionObj)
     }
@@ -43,7 +43,7 @@ function PerguntasFrequentes() {
     if(current === 3){
       textPerguntas3.validation = textPerguntas3.validation ? false : true;
       
-      textPerguntas3.validation ? textPerguntas3.img = "/img/iconDown.svg" : textPerguntas3.img = "/img/iconUp.svg";
+      textPerguntas3.validation ? textPerguntas3.img = "/img/iconUp.svg" : textPerguntas3.img = "/img/iconDown.svg";
       const {...desestrutuctionObj} = textPerguntas3;    
       setTextPerguntas3(desestrutuctionObj)
     }
@@ -51,7 +51,7 @@ function PerguntasFrequentes() {
     if(current === 4){
       textPerguntas4.validation = textPerguntas4.validation ? false : true;
       
-      textPerguntas4.validation ? textPerguntas4.img = "/img/iconDown.svg" : textPerguntas4.img = "/img/iconUp.svg";
+      textPerguntas4.validation ? textPerguntas4.img = "/img/iconUp.svg" : textPerguntas4.img = "/img/iconDown.svg";
       const {...desestrutuctionObj} = textPerguntas4;    
       setTextPerguntas4(desestrutuctionObj)
     }
