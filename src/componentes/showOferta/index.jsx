@@ -1,5 +1,6 @@
 import "./styles.css"
 import document from "../../assets/document.svg"
+import OfertaPagamentoParcelas from "./ofertaPagamentoParcelas";
 function ShowOferta() {
 
     return (
@@ -9,7 +10,7 @@ function ShowOferta() {
             </div>
             <h1 className="titulo-nome-cliente">Boas vindas [User name]</h1>
             <div className="container-principal visualiza-oferta">
-                
+
                 <div className="showContrato">
                     <div className="container-icone flex-row"><img src={document} alt="" /> <h2>Detalhes do seu contrato</h2></div>
                     <div className="detalhes">
@@ -24,15 +25,21 @@ function ShowOferta() {
                     </div>
                     <div className="opcoes_pagamento">
                         <h1 className="titulo_opcoes_pagamento">Como você quer pagar suas parcelas?</h1>
-                        <div className="botoes">
-                            <button>Pagamento das parcelas</button>
-                            <button>Renegociar seus contratos</button>
-                        </div>
-                    </div>
+                        <form className="botoes">
+                        <label>
+                            <input type="radio" name="opcao" value="1"/> Pagamento das Parcelas
+                        </label>
+                        <label>
+                            <input type="radio" name="opcao" value="2"/> Renegociação seu contrato
+                        </label>
+                    </form>
+                    
                 </div>
             </div>
-
+            <OfertaPagamentoParcelas/>
         </div>
+
+        </div >
     );
 }
 
