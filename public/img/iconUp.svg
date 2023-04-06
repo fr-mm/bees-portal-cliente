@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="12px" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>E385B2E1-3FB9-4F0B-8B13-73BCF6B9D923</title>
+    <defs>
+        <path d="M0.376576996,0.376576996 C0.840056375,-0.0869023836 1.56935345,-0.122554644 2.07372786,0.269620216 L2.19485158,0.376576996 L9.90913729,8.09086271 C10.3726167,8.55434209 10.4082689,9.28363916 10.0160941,9.78801357 L9.90913729,9.90913729 L2.19485158,17.623423 C1.69274891,18.1255257 0.878679656,18.1255257 0.376576996,17.623423 C-0.0869023836,17.1599436 -0.122554644,16.4306466 0.269620216,15.9262721 L0.376576996,15.8051484 L7.18071429,9 L0.376576996,2.19485158 C-0.0869023836,1.7313722 -0.122554644,1.00207512 0.269620216,0.497700716 L0.376576996,0.376576996 Z" id="path-1"></path>
+    </defs>
+    <g id="🇧🇷-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="FAQ-/-All-options-opened" transform="translate(-1179.000000, -1110.000000)">
+            <g id="Group-3" transform="translate(199.000000, 886.000000)">
+                <g id="Group" transform="translate(1.000000, 194.000000)">
+                    <g id="Nav/Accordion/Desktop/Collapsed-Copy" transform="translate(0.000000, 16.000000)">
+                        <g id="ZZ_Color-Override/Primary/Black" transform="translate(988.000000, 20.107143) rotate(-90.000000) translate(-988.000000, -20.107143) translate(982.857143, 11.107143)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Mask" fill-rule="nonzero"></g>
+                            <g id="ZZ_Color-Override/05_Interface/Neutrals/1-LabelPrimary" mask="url(#mask-2)" fill="#000000">
+                                <g transform="translate(-6.750000, -3.000000)" id="Rectangle">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
