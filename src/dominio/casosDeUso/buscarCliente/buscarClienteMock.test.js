@@ -10,8 +10,9 @@ describe("BuscarClienteMock", () => {
 
       const todoPreenchido = atributosPreenchidos(otd);
 
+      //console.dir(otd, { depth: null });
       if (!todoPreenchido) {
-        //console.dir(otd, { depth: null });
+        console.dir(otd, { depth: null });
       }
       expect(todoPreenchido).toBeTruthy();
     });

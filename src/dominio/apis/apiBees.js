@@ -1,42 +1,22 @@
 import axios from "axios";
-import { FalhaDeAutorizacaoErro } from "../erros";
 
-export default class APIMova {
+export default class APIBees {
   #api;
 
-  async autorizar() {
-    const response = await this.#api.post(
-      "/auth/credit-billing/token",
-      JSON.stringify({
-        grant_type: "client_credentials",
-        client_id: "salt-system",
-        client_secret: process.env.MOVA_CLIENT_SECRET,
-      })
-    );
-    if (response.status === 200) {
-      this.#api = await this.#criarAPI(response.data);
-    } else if (response.status === 401) {
-      throw new FalhaDeAutorizacaoErro();
-    } else {
-      throw new Error("Algo deu errado em APIMova.autorizar");
-    }
-  }
-
-  async #criarAPI(token) {
+  constructor() {
     this.#api = axios.create({
-      baseURL: "https://partners.hom.soudonus.com.br",
+      baseURL: "https://beesbank.integrador.saltzap.com/webhook",
       timeout: 10000,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: `Bearer ${token}`,
       },
     });
   }
 
-  async buscarContrato(contratoId) {
+  async buscarContrato({ type, value }) {
     return await this.#api.post(
-      "/credit-billing",
-      JSON.stringify({ contract_external_id: contratoId })
+      "/e75b4a0f-bbc7-4f07-b314-bbd7f47b21bd/44",
+      JSON.stringify({ type, value })
     );
   }
 
