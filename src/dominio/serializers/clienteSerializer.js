@@ -1,10 +1,10 @@
 import Cliente from "../otds/buscarClienteOTD/cliente";
 
 export default class ClienteSerializer {
-  parse(contrato) {
+  parse(payload) {
     return new Cliente({
-      nome: contrato.nome,
-      cpfCnpj: contrato.doc,
+      nome: payload.nome,
+      cpfCnpj: payload.doc,
     });
   }
 }

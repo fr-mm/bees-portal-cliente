@@ -1,4 +1,4 @@
-class ValorDeContrato {
+export default class ValorDeContrato {
   total;
   emAtraso;
   emAberto;
@@ -16,5 +16,3 @@ class ValorDeContrato {
     this.emAberto = emAberto;
   }
 }
-
-export default ValorDeContrato;

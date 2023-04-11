@@ -1,25 +1,11 @@
-const faker = require("@faker-js/faker").faker;
-
-function choice(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function randomFloat() {
-  return faker.datatype.float({
-    min: 0,
-    max: 999999,
-    precision: 0.0001,
-  });
-}
-
-function randomInt() {
-  return faker.datatype.number({ min: 0, max: 10 });
-}
-
-function kebabDate() {
-  const date = faker.date.past();
-  return date.toISOString().split("T")[0];
-}
+import {
+  choice,
+  randomFloat,
+  randomInt,
+  kebabDate,
+  many,
+} from "../../functions";
+import { faker } from "@faker-js/faker";
 
 const situacaoDeContrato = [
   "CANCELADO",
@@ -29,32 +15,15 @@ const situacaoDeContrato = [
   "RENEGOCIADO",
 ];
 
-function many(constructor) {
-  const result = [];
-  const amount = faker.datatype.number({ min: 0, max: 10 });
-  for (let i = 0; i < amount; i++) {
-    result.push(constructor());
-  }
-  return result;
+export default function mockBusucarContratos() {
+  return many(mockarContrato);
 }
 
-function mockarParcela(status) {
+export function mockarContrato() {
   return {
-    valor_parcela: randomFloat(),
-    valor_parcela_atualizado: randomFloat(),
-    valor_multa_parcela: randomFloat(),
-    valor_juros_parcela: randomFloat(),
-    valor_desagio_parcela: randomFloat(),
-    dias_atraso_parcela: randomInt(),
-    vencimento_original_parcela: kebabDate(),
-    numero_parcela: randomInt(),
-    status_parcela: status,
-  };
-}
-
-function mockarContrato() {
-  return {
-    doc: faker.datatype.number({ min: 14, max: 14 }).toString(),
+    doc: faker.datatype
+      .number({ min: 10000000000000, max: 99999999999999 })
+      .toString(),
     nome: faker.company.name(),
     situacao: choice(situacaoDeContrato),
     valor_total_atraso: randomFloat(),
@@ -87,8 +56,16 @@ function mockarContrato() {
   };
 }
 
-export default class APIBeesMock {
-  async buscarContrato({ type, value }) {
-    return many(mockarContrato);
-  }
+function mockarParcela(status) {
+  return {
+    valor_parcela: randomFloat(),
+    valor_parcela_atualizado: randomFloat(),
+    valor_multa_parcela: randomFloat(),
+    valor_juros_parcela: randomFloat(),
+    valor_desagio_parcela: randomFloat(),
+    dias_atraso_parcela: randomInt(),
+    vencimento_original_parcela: kebabDate(),
+    numero_parcela: randomInt(),
+    status_parcela: status,
+  };
 }

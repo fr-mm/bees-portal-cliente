@@ -1,4 +1,4 @@
-class Entrada {
+export default class Entrada {
   min;
   max;
   escolhida;
@@ -16,5 +16,3 @@ class Entrada {
     this.escolhida = escolhida;
   }
 }
-
-export default Entrada;

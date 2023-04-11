@@ -1,4 +1,4 @@
-class Contrato {
+export default class Contrato {
   numero;
   parcelas;
   valor;
@@ -16,5 +16,3 @@ class Contrato {
     this.valor = valor;
   }
 }
-
-export default Contrato;

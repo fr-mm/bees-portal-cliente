@@ -1,4 +1,4 @@
-class BuscarClienteOTDEntrada {
+export default class BuscarClienteOTDEntrada {
   valor;
   tipo;
 
@@ -7,5 +7,3 @@ class BuscarClienteOTDEntrada {
     this.tipo = tipo;
   }
 }
-
-export default BuscarClienteOTDEntrada;

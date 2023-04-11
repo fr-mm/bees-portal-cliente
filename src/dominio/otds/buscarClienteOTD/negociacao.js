@@ -1,4 +1,4 @@
-class Negociacao {
+export default class Negociacao {
   parcelamento;
   entrada;
 
@@ -13,5 +13,3 @@ class Negociacao {
     this.entrada = entrada;
   }
 }
-
-export default Negociacao;

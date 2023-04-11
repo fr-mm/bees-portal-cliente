@@ -1,7 +1,5 @@
-import Parcela from "../otds/buscarClienteOTD/parcela";
-import Parcelas from "../buscarClienteOTD/parcelas";
-import ValorDeContrato from "../buscarClienteOTD/ValorDeContrato";
-import statusDeParcelaEnum from "../enums/statusDeParcelaEnum";
+import { statusDeParcelaEnum } from "../enums";
+import { Parcela, Parcelas, ValorDeContrato } from "../otds/buscarClienteOTD";
 
 const statusDeParcela = {
   PAGA: statusDeParcelaEnum.paga,

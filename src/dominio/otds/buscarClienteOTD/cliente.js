@@ -1,4 +1,4 @@
-class Cliente {
+export default class Cliente {
   nome;
   cpfCnpj;
 
@@ -13,5 +13,3 @@ class Cliente {
     this.cpfCnpj = cpfCnpj;
   }
 }
-
-export default Cliente;

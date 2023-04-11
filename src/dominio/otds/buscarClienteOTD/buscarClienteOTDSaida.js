@@ -1,4 +1,4 @@
-class BuscarClienteOTDSaida {
+export default class BuscarClienteOTDSaida {
   cliente;
   contratos;
 
@@ -13,5 +13,3 @@ class BuscarClienteOTDSaida {
     this.contratos = contratos;
   }
 }
-
-export default BuscarClienteOTDSaida;

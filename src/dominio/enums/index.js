@@ -1,4 +1,4 @@
 import statusDeParcelaEnum from "./statusDeParcelaEnum";
-import tipoDeBuscaDeClienteEnum from "./tipoDeBuscaDeClienteEnum";
+import tipoDeBuscaEnum from "./tipoDeBuscaEnum";
 
-export { statusDeParcelaEnum, tipoDeBuscaDeClienteEnum };
+export { statusDeParcelaEnum, tipoDeBuscaEnum };

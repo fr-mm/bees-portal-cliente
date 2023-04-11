@@ -1,4 +1,4 @@
-class Parcelamentos {
+export default class Parcelamentos {
   possiveis;
   escolhido;
 
@@ -7,5 +7,3 @@ class Parcelamentos {
     this.escolhido = escolhido;
   }
 }
-
-export default Parcelamentos;

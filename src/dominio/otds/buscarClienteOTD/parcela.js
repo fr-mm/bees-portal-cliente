@@ -1,4 +1,4 @@
-class Parcela {
+export default class Parcela {
   numero;
   status;
   valor;
@@ -19,5 +19,3 @@ class Parcela {
     this.dataDeVencimento = dataDeVencimento;
   }
 }
-
-export default Parcela;

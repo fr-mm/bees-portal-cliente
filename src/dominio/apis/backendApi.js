@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class APIBuscarClienteSalt {
+export default class BackendAPI {
   #api;
 
   constructor() {
@@ -12,7 +12,7 @@ export default class APIBuscarClienteSalt {
     });
   }
 
-  async post({ valor, tipo }) {
+  async buscarContratos({ valor, tipo }) {
     return await this.#api.post("", JSON.stringify({ valor, tipo }));
   }
 }

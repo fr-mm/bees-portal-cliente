@@ -1,4 +1,4 @@
-class Parcelas {
+export default class Parcelas {
   todas;
   aVencer;
   inadimplentes;
@@ -23,5 +23,3 @@ class Parcelas {
     this.pagas = pagas;
   }
 }
-
-export default Parcelas;
