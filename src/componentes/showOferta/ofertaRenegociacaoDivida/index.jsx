@@ -1,4 +1,5 @@
 import "./styles.css"
+import "./slider.css"
 import React, { useState } from 'react';
 import ReactSlider from "react-slider";
 
@@ -16,7 +17,7 @@ function OfertaRenegociaDivida  (){
                 <h4>Defina em quantas  parcelas você quer pagar a sua renegociação</h4>
             </div>
            
-            <div>
+            <div className="box-input-e-label">
             <div className="box-label-input-range"><p>Entrada mínima</p><p>Entrada máxima</p></div>
             <ReactSlider
           className="slider"

@@ -1,10 +1,10 @@
 .container-header {
     display: flex;
-
+    z-index: 10;
     height: 5rem;
     width: 100vw;
     
- position: fixed;
+    position: fixed;
 
     padding-left: 3em;
     padding-right: 3em;
