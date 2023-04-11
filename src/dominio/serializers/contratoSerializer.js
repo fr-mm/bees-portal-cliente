@@ -17,6 +17,12 @@ export default class ContratoSerializer {
     };
   }
 
+  static #sortAll(...gruposDeParcelas) {
+    gruposDeParcelas.map((parcelas) =>
+      parcelas.sort((a, b) => (a.numero > b.numero ? 1 : -1))
+    );
+  }
+
   static #parcelas(contrato) {
     const aVencer = ContratoSerializer.#parseParcelas(
       contrato.parcelas_a_vencer
@@ -28,8 +34,20 @@ export default class ContratoSerializer {
     const renegociadas = ContratoSerializer.#parseParcelas(
       contrato.parcelas_renegociadas
     );
+    const todas = pagas
+      .concat(aVencer)
+      .concat(inadimplentes)
+      .concat(renegociadas);
+    ContratoSerializer.#sortAll(
+      aVencer,
+      inadimplentes,
+      pagas,
+      renegociadas,
+      todas
+    );
+
     return new Parcelas({
-      todas: pagas.concat(aVencer).concat(inadimplentes).concat(renegociadas),
+      todas,
       aVencer,
       inadimplentes,
       pagas,
