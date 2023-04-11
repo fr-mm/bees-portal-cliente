@@ -10,18 +10,7 @@
         justify-content: space-evenly;
         padding-left: 2rem;
 }
-/* #input-slider[type=range]::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000;
-    border: 1px solid #000000;
-  
-    height: 30px;
-    width: 15px;
-    border-radius: 5px;
-    background: #FFFFFF;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -11px;
-  } */
+
   
 .box-label-input-range {
     display: flex;
@@ -34,6 +23,7 @@
     display: flex;
     width: 95%;
     height: 9rem;
+    margin-top: 4rem;
     justify-content: space-between;
   }
 .box-left-renegocia-divida{
@@ -61,25 +51,102 @@
     justify-content: space-between;
     width: 68%;
 }
-#input-slider {
-   
-    width: 95%;
-    height: 0.5rem;
-    background-color: #C6C1CF;
-    border-radius: 1rem;
-    
-}
+.slider {
+    max-width: 97%;
+  }
+  .thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: black; /* meio da bola */
+    border: 0.4em solid black; /* borda da bola */
+    border-radius: 100%;
+    display: block;
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+  }
+  
+  .box-container {
+    margin-top: 2em;
+  }
+  
+  .box {
+    background-color: black;
+    width: 8em;
+    position: relative;
+    left: -3.62em;
+    display: flex;
+    color: white;
+    justify-content: center;
+    border-radius: 0.5em;
+    box-shadow: 0 0.3em 1em 0.1em rgb(0 0 0 / 20%);
+  }
+  .box::before {
+    content: "";
+    position: absolute;
+    top: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0.6em solid transparent;
+    border-right: 0.6em solid transparent;
+    border-bottom: 0.8em solid black;
+  }
+  
+  .track {
+    position: relative;
+    background: #ddd;
+    border: 2px solid transparent;
+  }
+  .track.track-0 {
+    background: #585858;
+    border: 2px solid #2c2c2c;
+  }
+  
+  .track.track-1 {
+    background: #d9d9d9;
+  }
+  
+  .slider .track {
+    top: 0.8em;
+    height: 0.65em;
+    border-radius: 2em;
+  }
+  .slider .thumb {
+    top: 0.5em;
+    width: 0.75em;
+    outline: none;
+    height: 0.75em;
+    line-height: 2em;
+  }
 #my-select-input {
     text-align: center;
     font-size: 0.8rem;
     width: 8.5rem;
-    height: 1.5rem;
+    height: 1.8rem;
     border-radius: 1rem;
     background-color: white;
-    overflow-y: scroll;
-    max-height: 20px; /* Set desired maximum height */
-    
+   
 }
+.box-btn-gerar-acordo {
+    width: 96%;
+    margin-top: -2.5rem;
+}
+.btn-gerar-acordo {
+    all: unset;
+    display: flex;
+    margin-top: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 15rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    border-radius: 2rem;
+    color: aliceblue;
+    padding: 0.2rem;
+    cursor: pointer;
+  }
 
 
 

@@ -1,20 +1,14 @@
 import "./styles.css"
 import React, { useState } from 'react';
+import ReactSlider from "react-slider";
 
 function OfertaRenegociaDivida  (){
-    const [sliderValue, setSliderValue] = useState(5); 
+    const [sliderValue, setSliderValue] = useState(0)
     const [selectedOption, setSelectedOption] = useState("Em 2 vezes"); 
- 
-    const handleSliderChange = (event) => {
-        const value = event.target.value;
-        setSliderValue(value);
-    };
-   
 
     const handleSelectChange = (event) => {
       setSelectedOption(event.target.value); 
     };
-  
 
     return (
         <div className="container_renegociar_divida">
@@ -24,15 +18,20 @@ function OfertaRenegociaDivida  (){
            
             <div>
             <div className="box-label-input-range"><p>Entrada mínima</p><p>Entrada máxima</p></div>
-                    <input
-                    type="range"
-                    min={0}
-                    id="input-slider"
-                    max={100}
-                    value={sliderValue}
-                    onChange={handleSliderChange}
-                        />
-               
+            <ReactSlider
+          className="slider"
+          thumbClassName="thumb"
+          trackClassName="track"
+          max={200}
+          onChange={setSliderValue}
+          renderThumb={(props, state) => (
+            <div {...props}>
+              <div className="box-container">
+                <div className="box">R$ {sliderValue}</div>
+              </div>
+            </div>
+          )}
+        />
             </div>
             <div className="box-infos-renegocia-divida">
                 <div className="box-left-renegocia-divida">
@@ -53,8 +52,12 @@ function OfertaRenegociaDivida  (){
                           
                          </select> 
                     </div>
-                    <h4>BR [Quantidy $$]</h4>
+                    <h4>R$ [Quantidy $$]</h4>
                 </div>
+               
+            </div>
+            <div className="box-btn-gerar-acordo">
+            <button className="btn-gerar-acordo">Gerar acordo</button>
             </div>
         </div>
     )
