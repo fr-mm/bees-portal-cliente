@@ -8,8 +8,8 @@ import { localStorageEnum } from "../../dominio/enums";
 
 function ShowOferta() {
   const navigate = useNavigate();
-  const { resultadoDeBusca } = useUser();
-  const [updatedBusca, setUpdatedBusca] = useState(resultadoDeBusca);
+  const { buscaContext } = useUser();
+  const [updatedBusca, setUpdatedBusca] = useState(buscaContext);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

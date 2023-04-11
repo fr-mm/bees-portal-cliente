@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  const { setResultadoDeBusca } = useUser();
+  const { setBuscaContext } = useUser();
   const [search, setSearch] = useState("");
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
@@ -41,7 +41,7 @@ function Home() {
       // muda de rota e passa os contratos pra nova rota
       localStorage.setItem(localStorageEnum.lastSearch, search);
       localStorage.setItem(localStorageEnum.lastSearchType, searchType);
-      setResultadoDeBusca(otd);
+      setBuscaContext(otd);
       navigate("/oferta");
     } catch (error) {
       // O que acontece se der erro de comunicação com backend

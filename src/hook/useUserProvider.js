@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 function useUserProvider() {
-  const [resultadoDeBusca, setResultadoDeBusca] = useState();
+  const [buscaContext, setBuscaContext] = useState();
 
   return {
-    resultadoDeBusca,
-    setResultadoDeBusca,
+    buscaContext,
+    setBuscaContext,
   };
 }
 
