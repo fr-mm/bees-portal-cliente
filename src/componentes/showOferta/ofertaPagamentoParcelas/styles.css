@@ -1,0 +1,82 @@
+.container_pagamento_parcelas{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    padding: 1.5em;
+    margin-top: 3rem;
+  
+}
+.container_lista {
+    width: 100%;
+}
+.total_parcelas_atrasada{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+    width: 99%;
+}
+.tabela_div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.titulo_container{
+    color: rgba(0,0,0,0.9);
+  font-family: Barlow;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-bottom: 2rem;
+}
+.valor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+}
+.titulo__{
+    color: #424242;
+    font-family: "Work Sans";
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+}
+.valor_parcela{
+    color: rgba(0,0,0,0.9);
+    font-family: Barlow;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.container_lista{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.box-btn-gerar-acordo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.btn-gerar-acordo-parcelas-vencidas{
+    all: unset;
+    display: flex;
+    margin-top: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 15rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    border-radius: 2rem;
+    color: aliceblue;
+    padding: 0.2rem;
+    cursor: pointer;
+  }

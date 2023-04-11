@@ -1,0 +1,84 @@
+.container-perguntas {
+    height: auto;
+}
+.scream-perguntas {
+    display: flex;
+
+    gap: 3rem;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;
+    max-height: auto;
+}
+.container-video-perguntas {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+    height: 34rem;
+}
+.container-title-perguntas {
+    display: flex;
+
+    width: 43.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: end;
+    gap: 1.5rem;
+    align-items: center;
+  
+}
+
+#img-bees {
+    width: 8rem;
+  
+}
+
+.container-title-perguntas h1 {
+    font-size: 2.7rem;
+   
+}
+.box-video {
+    background-color: black;
+    width: 42rem;
+    height: 28rem;
+    border-radius:  1rem 1rem 1rem 1rem;
+   
+}
+.container-text-perguntas h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.container-text-perguntas {
+    display: flex;
+
+    flex-direction: column;
+    width: 45rem;
+    height: auto;
+}
+.title-perguntas {
+    display: flex;
+
+    margin-bottom: 1rem;
+
+    height: 2.6rem;
+    border-bottom: 0.02rem solid  #424242;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-perguntas p{
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 20rem;
+    color: rgba(0,0,0,0.9);
+    cursor: pointer;
+
+}
+.title-perguntas img {
+    width: 1.3rem;
+    height: 1rem;
+    cursor: pointer;
+}

@@ -1,0 +1,92 @@
+.container_renegociar_divida {
+        width: 100%;
+        height: 28rem;
+        margin-top: 3rem;
+        box-sizing: border-box;
+        border: 1px solid #C6C1CF;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        
+}
+.box-title-renegocia-divida {
+    width: 100%;
+    padding-left: 2rem;
+}
+ .box-input-e-label {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+ } 
+.box-label-input-range {
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 1.6rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+.box-infos-renegocia-divida {
+    display: flex;
+    width: 95%;
+    height: 9rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+.box-left-renegocia-divida{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 50%;
+    height: 90%;
+    border-right: 1px solid rgb(151, 150, 150);
+}
+.box-right-renegocia-divida{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 50%;
+    height: 90%;
+   
+}
+.box-input-parcelas-renegocia-divida {
+    display: flex;
+    justify-content: space-between;
+    width: 68%;
+}
+#my-select-input {
+    text-align: center;
+    font-size: 0.8rem;
+    width: 8.5rem;
+    height: 1.8rem;
+    border-radius: 1rem;
+    background-color: white;
+   
+}
+.box-btn-gerar-acordo {
+    width: 96%;
+    margin-top: -2.5rem;
+}
+.btn-gerar-acordo {
+    all: unset;
+    display: flex;
+    margin-top: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 15rem;
+    height: 2rem;
+    font-size: 0.9rem;
+    border-radius: 2rem;
+    color: aliceblue;
+    padding: 0.2rem;
+    cursor: pointer;
+  }
+
+
