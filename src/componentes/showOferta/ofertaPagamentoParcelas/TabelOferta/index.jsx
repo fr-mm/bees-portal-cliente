@@ -2,9 +2,9 @@ import { format } from "../../../../auxiliar";
 import "./styles.css";
 export default function TabelaParcelas(props) {
   return (
-    <div class="container_tabela">
+    <div className="container_tabela">
       <h1>Detalhes das parcelas</h1>
-      <div class="tabela-wrapper">
+      <div className="tabela-wrapper">
         <table>
           <thead>
             <tr>
@@ -16,7 +16,7 @@ export default function TabelaParcelas(props) {
           <tbody>
             {props.contrato.parcelas.todas.map((parcela) => {
               return (
-                <tr>
+                <tr key={parcela.numero}>
                   <td>{parcela.numero}</td>
                   <td>{parcela.status}</td>
                   <td>{format.money(parcela.valor)}</td>

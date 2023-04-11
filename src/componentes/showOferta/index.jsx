@@ -9,18 +9,18 @@ import { localStorageEnum } from "../../dominio/enums";
 function ShowOferta() {
   const navigate = useNavigate();
   const { buscaContext } = useUser();
-  const [updatedBusca, setUpdatedBusca] = useState(buscaContext);
+  const [searchResult, setSearchResult] = useState(buscaContext);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     async function update() {
-      if (!updatedBusca) {
+      if (!searchResult) {
         const lastSearch = localStorage.getItem(localStorageEnum.lastSearch);
         const lastSearchType = localStorage.getItem(
           localStorageEnum.lastSearchType
         );
         if (lastSearch && lastSearchType) {
-          setUpdatedBusca(await doSearch(lastSearch, lastSearchType));
+          setSearchResult(await doSearch(lastSearch, lastSearchType));
         } else {
           navigate("/");
         }
@@ -52,7 +52,7 @@ function ShowOferta() {
     }
 
     update();
-  }, [navigate]);
+  }, [navigate, searchResult]);
 
   if (loaded) {
     return (
@@ -65,9 +65,9 @@ function ShowOferta() {
           </p>
         </div>
         <h1 className="titulo-nome-cliente">
-          Boas vindas {updatedBusca.cliente.nome}
+          Boas vindas {searchResult.cliente.nome}
         </h1>
-        {updatedBusca.contratos.map((contrato) => (
+        {searchResult.contratos.map((contrato) => (
           <ContratoDisplay key={contrato.numero} contrato={contrato} />
         ))}
       </div>
