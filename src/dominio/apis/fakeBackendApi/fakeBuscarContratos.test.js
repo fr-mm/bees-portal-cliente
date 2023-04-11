@@ -1,11 +1,11 @@
-import { atributosPreenchidos } from "../../../../auxiliar";
-import mockBusucarContratos from "./mockBuscarContratos";
+import { atributosPreenchidos } from "../../../auxiliar";
+import fakeBusucarContratos from "./fakeBuscarContratos";
 
 describe("mockBusucarContrato", () => {
   describe("QUANDO chamado", () => {
     let resultado;
     beforeAll(() => {
-      resultado = mockBusucarContratos();
+      resultado = fakeBusucarContratos();
     });
     test("retorna Array", () => {
       expect(resultado).toBeInstanceOf(Array);

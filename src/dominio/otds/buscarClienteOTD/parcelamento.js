@@ -1,4 +1,4 @@
-class Parcelamento {
+export default class Parcelamento {
   parcelas;
   valorDaParcela;
 
@@ -7,5 +7,3 @@ class Parcelamento {
     this.valorDaParcela = valorDaParcela;
   }
 }
-
-export default Parcelamento;

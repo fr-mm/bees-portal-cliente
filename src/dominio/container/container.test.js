@@ -1,9 +1,12 @@
+import { atributosPreenchidos } from "../../auxiliar";
 import container from "./container";
 
-test("container", () => {
-  const mock = container.buscarCliente.executar();
+test("conteiner preenchido", () => {
+  const preenchido = atributosPreenchidos(container);
 
-  console.dir(mock, { depth: null });
+  if (!preenchido) {
+    console.dir(container, { depth: null });
+  }
 
-  expect(true).toBeTruthy();
+  expect(preenchido).toBeTruthy();
 });

@@ -1,13 +1,15 @@
-import BuscarClienteMock from "../casosDeUso/buscarCliente/buscarCienteMock";
+import { FakeBackendAPI } from "../apis";
+import { CasoDeUsoBuscarContratos } from "../casosDeUso";
+import { ClienteSerializer, ContratoSerializer } from "../serializers";
 
-class Container {
-  buscarCliente;
-
-  constructor() {
-    this.buscarCliente = new BuscarClienteMock();
-  }
-}
-
-const container = new Container();
+const container = {
+  casoDeUso: {
+    buscarContratos: new CasoDeUsoBuscarContratos({
+      api: new FakeBackendAPI(),
+      contratoSerializer: new ContratoSerializer(),
+      clienteSerializer: new ClienteSerializer(),
+    }),
+  },
+};
 
 export default container;

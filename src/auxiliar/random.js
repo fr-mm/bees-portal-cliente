@@ -4,7 +4,7 @@ export function choice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export function randomFloat() {
+export function float() {
   return faker.datatype.float({
     min: 0,
     max: 999999,
@@ -12,7 +12,7 @@ export function randomFloat() {
   });
 }
 
-export function randomInt() {
+export function int() {
   return faker.datatype.number({ min: 0, max: 10 });
 }
 

@@ -1,3 +1,4 @@
 import * as apis from "./apis";
+import MockSerializer from "./mockSerializer";
 
-export { apis };
+export { apis, MockSerializer };

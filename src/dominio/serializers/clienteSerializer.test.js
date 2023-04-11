@@ -1,5 +1,5 @@
 import { atributosPreenchidos } from "../../auxiliar";
-import { mockarContrato } from "../mocks/apis/backendApi/mockBuscarContratos";
+import { criarFakeContrato } from "../apis/fakeBackendApi/fakeBuscarContratos";
 import ClienteSerializer from "./clienteSerializer";
 
 describe("ClienteSerializer", () => {
@@ -11,7 +11,7 @@ describe("ClienteSerializer", () => {
     describe("QUANDO payload valido", () => {
       let payload;
       beforeAll(() => {
-        payload = mockarContrato();
+        payload = criarFakeContrato();
       });
       test("retorna Cliente preenchido", () => {
         const cliente = serializer.parse(payload);

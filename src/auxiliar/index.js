@@ -1,3 +1,4 @@
 import atributosPreenchidos from "./atributosPreenchidos";
+import * as random from "./random";
 
-export { atributosPreenchidos };
+export { atributosPreenchidos, random };
