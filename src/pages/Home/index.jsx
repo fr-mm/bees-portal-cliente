@@ -2,14 +2,14 @@ import "./styles.css";
 import Header from "../../componentes/Header";
 import Footer from "../../componentes/Footer";
 import { useState } from "react";
-import { tipoDeBuscaEnum } from "../../dominio/enums";
+import { localStorageEnum, tipoDeBuscaEnum } from "../../dominio/enums";
 import container from "../../dominio/container";
 import { useUser } from "../../hook";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  const { resultadoDeBusca, setResultadoDeBusca } = useUser();
+  const { setResultadoDeBusca } = useUser();
   const [search, setSearch] = useState("");
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
@@ -39,7 +39,8 @@ function Home() {
       }
 
       // muda de rota e passa os contratos pra nova rota
-
+      localStorage.setItem(localStorageEnum.lastSearch, search);
+      localStorage.setItem(localStorageEnum.lastSearchType, searchType);
       setResultadoDeBusca(otd);
       navigate("/oferta");
     } catch (error) {
