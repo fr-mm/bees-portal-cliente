@@ -1,0 +1,87 @@
+.container_renegociar_divida {
+        width: 100%;
+        height: 28rem;
+        margin-top: 3rem;
+        box-sizing: border-box;
+        border: 1px solid #C6C1CF;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-left: 2rem;
+}
+/* #input-slider[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+  
+    height: 30px;
+    width: 15px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+  } */
+  
+.box-label-input-range {
+    display: flex;
+    width: 95%;
+    height: 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+.box-infos-renegocia-divida {
+    display: flex;
+    width: 95%;
+    height: 9rem;
+    justify-content: space-between;
+  }
+.box-left-renegocia-divida{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 50%;
+    height: 90%;
+    border-right: 1px solid rgb(151, 150, 150);
+}
+.box-right-renegocia-divida{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 50%;
+    height: 90%;
+   
+}
+.box-input-parcelas-renegocia-divida {
+    display: flex;
+    justify-content: space-between;
+    width: 68%;
+}
+#input-slider {
+   
+    width: 95%;
+    height: 0.5rem;
+    background-color: #C6C1CF;
+    border-radius: 1rem;
+    
+}
+#my-select-input {
+    text-align: center;
+    font-size: 0.8rem;
+    width: 8.5rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    overflow-y: scroll;
+    max-height: 20px; /* Set desired maximum height */
+    
+}
+
+
+
+
+

@@ -1,6 +1,5 @@
-
 .container_tabela{
-    width: 80%;
+    width: 100%;
     box-sizing: border-box;
     border: 1px solid #C6C1CF;
     border-radius: 8px;
@@ -9,6 +8,7 @@
     justify-content: space-evenly;
     padding-left: 2rem;
     max-height: 500px;
+    background-color: #F7F7F7;
     
 }
 
@@ -26,7 +26,8 @@
     overflow-y: auto;
     padding-left: 2rem;
     scrollbar-color: rebeccapurple green;
-  scrollbar-width: thin
+  scrollbar-width: thin;
+  background-color: #F7F7F7;
 }
 
 table {

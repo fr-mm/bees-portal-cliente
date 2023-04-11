@@ -1,5 +1,6 @@
 import TabelaParcelas from "./TabelOferta"
 import "./styles.css"
+
 function OfertaPagamentoParcelas  (){
     return (
         <div className="container_pagamento_parcelas">
@@ -17,6 +18,9 @@ function OfertaPagamentoParcelas  (){
                 <div className="valor">
                 <p className="titulo__">Pague o valor de</p>
                 <p className="valor_parcela">R$365,49</p>
+                </div>
+                <div className="box-btn-gerar-acordo">
+                <button className="btn-gerar-acordo-parcelas-vencidas">Gerar acordo parcelas vencidas</button>
                 </div>
             </div>
         </div>

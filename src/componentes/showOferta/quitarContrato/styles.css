@@ -1,0 +1,36 @@
+.container-pagar-acordo-inteiro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+    height: 16rem;
+    margin-top: 3rem;
+    padding: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+.box-title-pagar-acordo {
+    width: 99%;
+}
+.box-infos-pagar-contrato-inteiro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+}
+.btn-quitar-contrato{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    background-color: black;
+    width: 15rem;
+    height: 2rem;
+    border-radius: 2rem;
+    color: aliceblue;
+    padding: 0.2rem;
+    cursor: pointer;
+  }

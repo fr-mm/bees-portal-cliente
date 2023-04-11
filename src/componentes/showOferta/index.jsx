@@ -1,7 +1,17 @@
 import "./styles.css"
 import document from "../../assets/document.svg"
 import OfertaPagamentoParcelas from "./ofertaPagamentoParcelas";
+import OfertaRenegociaDivida from "./ofertaRenegociacaoDivida";
+import QuitarContrato from "./quitarContrato";
+import React, { useState } from 'react';
+
 function ShowOferta() {
+    const [inputOption, setInputOption] = useState("1"); 
+
+    const handleChangeInput = (event) => {
+        setInputOption(event.target.value); 
+      };
+    
 
     return (
         <div className="oferta">
@@ -26,19 +36,19 @@ function ShowOferta() {
                     <div className="opcoes_pagamento">
                         <h1 className="titulo_opcoes_pagamento">Como você quer pagar suas parcelas?</h1>
                         <form className="botoes">
-                        <label>
-                            <input type="radio" name="opcao" value="1"/> Pagamento das Parcelas
+                        <label className="btn-trocar-tela">
+                            <input type="radio" name="opcao" value="1" onChange={handleChangeInput}/> Pagamento das Parcelas
                         </label>
-                        <label>
-                            <input type="radio" name="opcao" value="2"/> Renegociação seu contrato
+                        <label className="btn-trocar-tela">
+                            <input type="radio" name="opcao" value="2" onChange={handleChangeInput}/> Renegociação seu contrato
                         </label>
                     </form>
                     
                 </div>
             </div>
-            <OfertaPagamentoParcelas/>
+            {inputOption === "1"? <><OfertaPagamentoParcelas/> <QuitarContrato/></> : <OfertaRenegociaDivida />}
         </div>
-
+       
         </div >
     );
 }
