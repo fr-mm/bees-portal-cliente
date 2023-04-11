@@ -46,6 +46,7 @@ export default function ContratoDisplay(props) {
                 name="opcao"
                 value="1"
                 onChange={handleChangeInput}
+                defaultChecked={true}
               />{" "}
               Pagamento das Parcelas
             </label>
