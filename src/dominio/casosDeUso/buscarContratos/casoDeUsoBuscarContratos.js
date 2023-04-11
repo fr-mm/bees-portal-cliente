@@ -33,7 +33,9 @@ export default class CasoDeUsoBuscarContratos {
   #serializeResponseData(data) {
     if (data.length > 0) {
       const cliente = this.#clienteSerializer.parse(data[0]);
-      const contratos = data.map(this.#contratoSerializer.parse);
+
+      const contratoSerializer = this.#contratoSerializer;
+      const contratos = data.map(contratoSerializer.parse);
       return new BuscarClienteOTDSaida({ cliente, contratos });
     } else {
       return [];

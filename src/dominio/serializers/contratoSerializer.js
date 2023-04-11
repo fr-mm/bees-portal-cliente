@@ -12,18 +12,24 @@ export default class ContratoSerializer {
   parse(contrato) {
     return {
       numero: contrato.contrato,
-      parcelas: this.#parcelas(contrato),
-      valor: this.#valor(contrato),
+      parcelas: ContratoSerializer.#parcelas(contrato),
+      valor: ContratoSerializer.#valor(contrato),
     };
   }
 
-  #parcelas(contrato) {
-    const aVencer = this.#parseParcelas(contrato.parcelas_a_vencer);
-    const inadimplentes = this.#parseParcelas(contrato.parcelas_atrasadas);
-    const pagas = this.#parseParcelas(contrato.parcelas_pagas);
-    const renegociadas = this.#parseParcelas(contrato.parcelas_renegociadas);
+  static #parcelas(contrato) {
+    const aVencer = ContratoSerializer.#parseParcelas(
+      contrato.parcelas_a_vencer
+    );
+    const inadimplentes = ContratoSerializer.#parseParcelas(
+      contrato.parcelas_atrasadas
+    );
+    const pagas = ContratoSerializer.#parseParcelas(contrato.parcelas_pagas);
+    const renegociadas = ContratoSerializer.#parseParcelas(
+      contrato.parcelas_renegociadas
+    );
     return new Parcelas({
-      todas: aVencer.concat(inadimplentes).concat(pagas).concat(renegociadas),
+      todas: pagas.concat(aVencer).concat(inadimplentes).concat(renegociadas),
       aVencer,
       inadimplentes,
       pagas,
@@ -31,7 +37,7 @@ export default class ContratoSerializer {
     });
   }
 
-  #valor(contrato) {
+  static #valor(contrato) {
     return new ValorDeContrato({
       total: contrato.valor_emprestimo,
       inadimplentes: contrato.valor_total_atraso,
@@ -41,14 +47,14 @@ export default class ContratoSerializer {
 
   static #parseParcela(parcela) {
     return new Parcela({
-      numero: parcela.valor_parcela,
+      numero: parcela.numero_parcela,
       status: statusDeParcela[parcela.status_parcela] || "??",
       valor: parcela.valor_parcela_atualizado,
       dataDeVencimento: parcela.vencimento_original_parcela,
     });
   }
 
-  #parseParcelas(parcelas) {
+  static #parseParcelas(parcelas) {
     return parcelas.map(ContratoSerializer.#parseParcela);
   }
 }

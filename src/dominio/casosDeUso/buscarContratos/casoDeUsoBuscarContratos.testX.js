@@ -6,7 +6,9 @@ import {
   BuscarClienteOTDSaida,
 } from "../../otds/buscarClienteOTD";
 import { faker } from "@faker-js/faker";
-import { random } from "../../../auxiliar";
+import { atributosPreenchidos, random } from "../../../auxiliar";
+import { FakeBackendAPI } from "../../apis";
+import { ClienteSerializer, ContratoSerializer } from "../../serializers";
 
 describe("CasoDeUsoBuscarContratos", () => {
   let expected;
@@ -43,6 +45,32 @@ describe("CasoDeUsoBuscarContratos", () => {
           contratos: expected.serialized.contratos,
         });
         expect(otdSaida).toEqual(esperado);
+      });
+    });
+  });
+});
+
+describe("CasoDeUsoBuscarContratos INTEGRAÇÃO", () => {
+  describe(".executar", () => {
+    describe("QUANDO contratos existem", () => {
+      test("retorna otd preenchido", async () => {
+        const casoDeUso = new CasoDeUsoBuscarContratos({
+          api: new FakeBackendAPI(),
+          clienteSerializer: new ClienteSerializer(),
+          contratoSerializer: new ContratoSerializer(),
+        });
+        const otdEntrada = new BuscarClienteOTDEntrada({
+          valor: faker.datatype.number({ min: 10000000000, max: 99999999999 }),
+          tipo: random.choice(Array.from(Object.values(tipoDeBuscaEnum))),
+        });
+
+        const otdSaida = await casoDeUso.executar(otdEntrada);
+
+        const preeenchido = atributosPreenchidos(otdSaida);
+        if (!preeenchido) {
+          console.dir(otdSaida, { depth: null });
+        }
+        expect(preeenchido).toBeTruthy();
       });
     });
   });

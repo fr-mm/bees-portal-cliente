@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import { BrowserRouter } from 'react-router-dom';
-import MyRoutes from './routes';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import MyRoutes from "./routes";
+import { UserProvider } from "./context/userContext";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const roots = ReactDOM.createRoot(document.getElementById("root"));
+roots.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <MyRoutes />
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <MyRoutes />
+      </BrowserRouter>
+    </UserProvider>
   </React.StrictMode>
 );
-
-

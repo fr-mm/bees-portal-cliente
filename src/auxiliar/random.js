@@ -25,7 +25,7 @@ export function many(constructor) {
   const result = [];
   const amount = faker.datatype.number({ min: 1, max: 10 });
   for (let i = 0; i < amount; i++) {
-    result.push(constructor());
+    result.push(constructor(i));
   }
   return result;
 }
