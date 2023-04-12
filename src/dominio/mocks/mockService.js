@@ -1,33 +1,15 @@
 export default class MockService {
-  static #ANY = "%$#@%$@#$% ANY VALUE @#$%@%@$%#%";
-  #entradaEsperada;
-  #retorno;
+  expected;
+  result;
 
-  constructor({ entradaEsperada, retorno }) {
-    if (!entradaEsperada || !retorno) {
-      throw new Error(
-        `ERRO: new MockService({entradaEsperada: ${entradaEsperada}, retorno: ${retorno}})`
-      );
-    } else {
-      this.#retorno = retorno;
-      this.#entradaEsperada = entradaEsperada;
-    }
+  constructor({ expected, result }) {
+    this.expected = expected;
+    this.result = result;
   }
 
-  execute(entrada) {
-    if (
-      entrada === this.#entradaEsperada ||
-      this.#entradaEsperada === MockService.#ANY
-    ) {
-      return this.#retorno;
-    } else {
-      return `ERRO: MockService.execute esperou receber (${
-        this.#entradaEsperada
-      }) mas recebeu (${entrada})`;
+  execute(input) {
+    if (input === this.expected) {
+      return this.result;
     }
-  }
-
-  static get ANY() {
-    return MockService.#ANY;
   }
 }

@@ -26,7 +26,7 @@ export default class CasoDeUsoBuscarContratos {
     } else if (response.status === 400) {
       throw new PayloadInvalidoErro();
     } else {
-      throw new Error(`${response.status}: ${response.data}}`);
+      throw new Error(`${response.status}: ${response.data}`);
     }
   }
 

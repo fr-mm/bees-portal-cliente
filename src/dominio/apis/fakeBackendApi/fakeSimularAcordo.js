@@ -1,0 +1,22 @@
+import { faker } from "@faker-js/faker";
+import { random } from "../../../auxiliar";
+
+export default function fakeSimularAcordo(otdEntrada) {
+  const qtdsDeParcelas = Array.from(
+    new Set(random.many(() => faker.datatype.number({ min: 2, max: 48 })))
+  );
+  return qtdsDeParcelas.map((qtdParcelas) =>
+    criarFakeSimulacao({ entrada: otdEntrada.entrada, qtdParcelas })
+  );
+}
+
+export function criarFakeSimulacao({ entrada, qtdParcelas }) {
+  const valorTotal = faker.datatype.number({ min: 1000, max: 999999 });
+  return {
+    installments_number: qtdParcelas,
+    down_payment_value: entrada,
+    installment_amount: valorTotal / qtdParcelas,
+    sum_installments_amount: valorTotal,
+    simulation_id: faker.datatype.uuid(),
+  };
+}
