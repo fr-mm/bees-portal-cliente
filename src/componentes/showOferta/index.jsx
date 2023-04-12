@@ -6,6 +6,7 @@ import container from "../../dominio/container";
 import { useNavigate } from "react-router-dom";
 import { localStorageEnum } from "../../dominio/enums";
 import ModalSimples from "../modal/modalSimples/ModalSimples";
+import Modal from "../modal/Modal";
 
 function ShowOferta() {
   const navigate = useNavigate();

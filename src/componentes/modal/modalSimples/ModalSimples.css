@@ -1,33 +1,27 @@
-
-#img-close#componente {
-    color: #424242;
-    cursor: pointer;
-    width: 1.3em;
-    height: 93%;
-}
-.modal-busca-invalida p{
-    font-size: 1.3em;
-}
-.title-tel.container-title {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    font-size: 1.7em;
-    padding-left: 0.7em;
-    padding-right: 0.7em;
-}
 .modal-simples.container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    font-size: 1.7em;
-    padding-left: 0.7em;
-    padding-right: 0.7em;
+  display: flex;
+  width: 25em;
+  min-height: 15em;
 }
-#box-btn-busca-invalida {
-    display: flex;
-    justify-content: end;
-    padding-right: 1em;
-    width: 100%;
-    height: 2.5em;
+.modal-simples.title {
+  display: flex;
+}
+.modal-simples.title h1 {
+  padding-top: 0.3em;
+  margin-right: auto;
+  margin-bottom: 1.3em;
+}
+
+.modal-simples.close {
+  margin-left: auto;
+  font-size: 2em;
+  user-select: none;
+  cursor: pointer;
+}
+.modal-simples.text {
+  margin-bottom: auto;
+}
+.modal-simples.button {
+  display: flex;
+  margin-left: auto;
 }

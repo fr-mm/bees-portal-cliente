@@ -7,15 +7,15 @@ function ModalSimples(props) {
   return (
     <Modal>
       <div className="modal-simples container">
-        <div className="title-tel container-title">
-          <h3>{props.title}</h3>
-          <div onClick={props.close}>
-            <AiFillCloseCircle id="img-close" />
-          </div>
+        <div className="modal-simples title">
+          <h1>{props.title}</h1>
+          <AiFillCloseCircle
+            className="modal-simples close"
+            onClick={props.close}
+          />
         </div>
-        <p>{props.text}</p>
-
-        <div id="box-btn-busca-invalida">
+        <div className="modal-simples text">{props.text}</div>
+        <div className="modal-simples button">
           <BlackButton onClick={props.buttonOnClick}>
             {props.buttonText}
           </BlackButton>
