@@ -1,10 +1,15 @@
 .container-req {
     display: flex;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5em;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
 }
 .box-carregamento {
     display: flex;
@@ -17,4 +22,8 @@
     height: 6rem;
     width: 5rem;
 }
-
+.box-loader-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}

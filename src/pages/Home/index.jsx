@@ -6,11 +6,15 @@ import { localStorageEnum, tipoDeBuscaEnum } from "../../dominio/enums";
 import container from "../../dominio/container";
 import { useUser } from "../../hook";
 import { useNavigate } from "react-router-dom";
+import ProcessamentoReq from "../../componentes/ProcessamentoReq";
+import BuscaDocInvalida from "../../componentes/buscaDocumentoInvalido";
 
 function Home() {
   const navigate = useNavigate();
-  const { setBuscaContext } = useUser();
+  const { setBuscaContext, setModalOpenBuscaDocInvalida } = useUser();
   const [search, setSearch] = useState("");
+  const [modalBuscaInvalidaShowing, setModalBuscaInvalidaShowing] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
     title: "Fácil de usar",
@@ -27,12 +31,15 @@ function Home() {
   }
 
   async function doSearch() {
+    setLoading(true)
     try {
+     
+      await new Promise(resolve => setTimeout(resolve, 3000));    
       const otd = await container.casoDeUso.buscarContratos.executar({
         valor: search,
         tipo: searchType,
       });
-
+      throw new Error('This is a custom error message');
       if (otd.contratos.length === 0) {
         // O que acntece se não tiver contratos
         console.log("cliente não tem contratos");
@@ -45,8 +52,10 @@ function Home() {
       navigate("/oferta");
     } catch (error) {
       // O que acontece se der erro de comunicação com backend
-      throw error;
+      setModalBuscaInvalidaShowing(true)
+      throw error;  
     }
+    finally{setLoading(false)}
   }
 
   const testimonials = [
@@ -135,6 +144,8 @@ function Home() {
   return (
     <div className="container-home">
       <Header />
+      {modalBuscaInvalidaShowing ? <BuscaDocInvalida close={() => {setModalBuscaInvalidaShowing(false)}}/> : <></>}
+      {loading ? <ProcessamentoReq/> : <></>}
       <div className="scream-busca-cpf">
         <div className="container-title">
           <h1>NEGOCIE AGORA</h1>
