@@ -11,7 +11,7 @@ import BuscaDocInvalida from "../../componentes/buscaDocumentoInvalido";
 
 function Home() {
   const navigate = useNavigate();
-  const { setBuscaContext, setModalOpenBuscaDocInvalida } = useUser();
+  const { setBuscaContext } = useUser();
   const [search, setSearch] = useState("");
   const [modalBuscaInvalidaShowing, setModalBuscaInvalidaShowing] = useState(false)
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,8 @@ function Home() {
         valor: search,
         tipo: searchType,
       });
-      throw new Error('This is a custom error message');
+
+      // throw new Error('Erro para validar modal de busca invalida');
       if (otd.contratos.length === 0) {
         // O que acntece se não tiver contratos
         console.log("cliente não tem contratos");

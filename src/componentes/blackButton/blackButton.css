@@ -5,6 +5,7 @@
   all: unset;
   display: flex;
   padding: 0.8em;
+  user-select: none;
   justify-content: center;
   align-items: center;
   background-color: black;

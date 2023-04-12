@@ -1,6 +1,7 @@
 import TabelaParcelas from "./TabelOferta";
 import "./styles.css";
 import { format } from "../../../auxiliar";
+import BlackButton from "../../blackButton/BlackButton";
 
 function OfertaPagamentoParcelas(props) {
   return (
@@ -23,13 +24,12 @@ function OfertaPagamentoParcelas(props) {
           <p className="valor_parcela">TBD</p>
         </div>
         <div className="box-btn-gerar-acordo">
-          <button className="btn-gerar-acordo-parcelas-vencidas">
+          <BlackButton onClick={() => {}}>
             Gerar acordo parcelas vencidas
-          </button>
+          </BlackButton>
         </div>
       </div>
     </div>
   );
 }
 export default OfertaPagamentoParcelas;
-
