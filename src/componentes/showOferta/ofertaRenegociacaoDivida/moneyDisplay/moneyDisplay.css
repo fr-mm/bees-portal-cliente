@@ -1,0 +1,11 @@
+.money-display-container {
+  padding: 1em 5em;
+  display: flex;
+}
+
+.money-display-container.disabled {
+  background-color: #e6e6e6;
+  border-radius: 0.5em;
+  color: gray;
+  user-select: none;
+}
