@@ -4,6 +4,7 @@ import Oferta from "./pages/Oferta";
 import PerguntasFrequentes from "./pages/PerguntaFrequentes";
 import ProcessamentoReq from "./componentes/ProcessamentoReq"
 import BuscaDocInvalida from "./componentes/buscaDocumentoInvalido"
+import TelaSucesso from "./componentes/telaSucesso";
 export default function MyRoutes() {
     return (
         <>
@@ -11,7 +12,7 @@ export default function MyRoutes() {
             <Route path="/" element={<Home />}/>
             <Route path="/oferta" element={<Oferta/>}/>
             <Route path="/perguntasFrequentes" element={<PerguntasFrequentes/>}/>
-            <Route path="/teste" element={<BuscaDocInvalida/>}/>
+            <Route path="/teste" element={<TelaSucesso/>}/>
         </Routes>         
         </>
     );

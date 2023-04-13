@@ -17,7 +17,9 @@ function BuscaDocInvalida(props) {
           contrato e tente novamente
         </p>
         <div id="box-btn-busca-invalida">
-          <BlackButton onClick={props.close}>Tentar novamente</BlackButton>
+          <BlackButton width="10em" onClick={props.close}>
+            Tentar novamente
+          </BlackButton>
         </div>
       </div>
     </div>
