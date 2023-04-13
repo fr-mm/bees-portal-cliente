@@ -13,15 +13,13 @@ function Home() {
   const navigate = useNavigate();
   const { setBuscaContext } = useUser();
   const [search, setSearch] = useState("");
-  const [modalBuscaInvalidaShowing, setModalBuscaInvalidaShowing] = useState(
-    false
-  );
+  const [modalBuscaInvalidaShowing, setModalBuscaInvalidaShowing] =
+    useState(false);
   const [loading, setLoading] = useState(false);
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
     title: "Fácil de usar",
-    text:
-      "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
+    text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
     img: "/img/SVG_Graphic.svg",
   });
 
@@ -36,7 +34,6 @@ function Home() {
   async function doSearch() {
     setLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 3000));
       const otd = await container.casoDeUso.buscarContratos.executar({
         valor: search,
         tipo: searchType,
@@ -65,15 +62,13 @@ function Home() {
   const testimonials = [
     {
       title: "Fácil de usar",
-      text:
-        "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
+      text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },
     {
       title: "100% seguro",
-      text:
-        "É rápido e fácil. As parcelas são submetidas a uma análise para garantir a melhor segurança de que você está pagando corretamente",
+      text: "É rápido e fácil. As parcelas são submetidas a uma análise para garantir a melhor segurança de que você está pagando corretamente",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },

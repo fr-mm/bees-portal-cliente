@@ -15,13 +15,13 @@ class FakeResponse {
 
 export default class FakeBackendAPI extends AbstractAPI {
   async buscarContratos({ type, value }) {
-    this.#wait();
+    await this.#wait();
     const contratos = fakeBusucarContratos();
     return new FakeResponse(contratos);
   }
 
   async simularAcordo(otdEntrada) {
-    this.#wait();
+    await this.#wait();
     const simulacoes = fakeSimularAcordo(otdEntrada);
     return new FakeResponse(simulacoes);
   }
