@@ -34,38 +34,45 @@
   margin-top: 3rem;
   justify-content: space-between;
 }
-.box-left-renegocia-divida {
+.lower-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 1.5rem;
   width: 50%;
   height: 90%;
+}
+.lower-box.left {
   border-right: 1px solid rgb(151, 150, 150);
 }
-.box-right-renegocia-divida {
+.lower-box.left p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.lower-box-title {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1;
+  margin: 0 10em;
+  min-height: 3em;
   align-items: center;
-  gap: 1.5rem;
-  width: 50%;
-  height: 90%;
-}
-.box-input-parcelas-renegocia-divida {
-  display: flex;
   justify-content: space-between;
-  width: 68%;
-  margin-bottom: auto;
 }
-#my-select-input {
+.parcelas-select {
+  display: flex;
   text-align: center;
   font-size: 0.8rem;
   width: 8.5rem;
   height: 1.8rem;
   border-radius: 1rem;
   background-color: white;
+}
+.centered-money-display {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+.money-display-loader-container {
+  display: flex;
+  align-items: center;
 }
 .box-btn-gerar-acordo {
   width: 96%;

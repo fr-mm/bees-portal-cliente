@@ -92,34 +92,42 @@ function OfertaRenegociaDivida(props) {
         />
       </div>
       <div className="box-infos-renegocia-divida">
-        <div className="box-left-renegocia-divida">
-          <p>Entrada</p>
-          <MoneyDisplay active={true}>
-            {format.money(entradaValue)}
-          </MoneyDisplay>
+        <div className="lower-box left">
+          <div className="lower-box-title">
+            <p>Entrada</p>
+          </div>
+          <div className="centered-money-display">
+            <MoneyDisplay active={true}>
+              {format.money(entradaValue)}
+            </MoneyDisplay>
+          </div>
         </div>
-        <div className="box-right-renegocia-divida">
-          <div className="box-input-parcelas-renegocia-divida">
+        <div className="lower-box">
+          <div className="lower-box-title">
             <p>Em quantas parcelas?</p>
             <select
               value={qtdParcelas}
               onChange={qtdParcelasOnChange}
-              id="my-select-input"
+              className="parcelas-select"
             >
               {qtdParcelasPossiveis.map((qtd) => (
                 <option value={qtd}>Em {qtd} vezes</option>
               ))}
             </select>
           </div>
-          {simulacao ? (
-            <MoneyDisplay active={true}>
-              {format.money(simulacao.valor.daParcela)}
-            </MoneyDisplay>
-          ) : fetching ? (
-            <Loader />
-          ) : (
-            <MoneyDisplay active={false} />
-          )}
+          <div className="centered-money-display">
+            {simulacao ? (
+              <MoneyDisplay active={true}>
+                {format.money(simulacao.valor.daParcela)}
+              </MoneyDisplay>
+            ) : fetching ? (
+              <div className="money-display-loader-container">
+                <Loader />
+              </div>
+            ) : (
+              <MoneyDisplay active={false} />
+            )}
+          </div>
         </div>
       </div>
       {simulacao ? (
