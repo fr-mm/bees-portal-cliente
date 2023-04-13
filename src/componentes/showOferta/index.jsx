@@ -5,12 +5,10 @@ import ContratoDisplay from "./ContratoDisplay";
 import container from "../../dominio/container";
 import { useNavigate } from "react-router-dom";
 import { localStorageEnum } from "../../dominio/enums";
-import ModalSimples from "../modal/modalSimples/ModalSimples";
 
 export default function ShowOferta() {
   const navigate = useNavigate();
   const { buscaContext } = useUser();
-  const [modalSimpesOpen, setModalSimplesOpen] = useState(false);
   const [searchResult, setSearchResult] = useState(buscaContext);
   const [loaded, setLoaded] = useState(false);
 

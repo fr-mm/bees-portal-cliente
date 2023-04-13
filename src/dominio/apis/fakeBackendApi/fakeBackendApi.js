@@ -26,6 +26,11 @@ export default class FakeBackendAPI extends AbstractAPI {
     return new FakeResponse(simulacoes);
   }
 
+  async gerarAcordo(otdEntrada) {
+    await this.#wait();
+    return new FakeResponse({});
+  }
+
   async #wait() {
     await new Promise((resolve) => setTimeout(resolve, waitTime));
   }

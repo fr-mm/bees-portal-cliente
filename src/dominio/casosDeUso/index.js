@@ -1,4 +1,9 @@
 import CasoDeUsoBuscarContratos from "./buscarContratos";
 import CasoDeUsoSimularAcordo from "./simularAcordo";
+import CasoDeUsoGerarAcordo from "./gerarAcordo";
 
-export { CasoDeUsoBuscarContratos, CasoDeUsoSimularAcordo };
+export {
+  CasoDeUsoBuscarContratos,
+  CasoDeUsoSimularAcordo,
+  CasoDeUsoGerarAcordo,
+};

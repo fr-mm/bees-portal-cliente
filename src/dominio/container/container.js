@@ -1,6 +1,7 @@
 import { FakeBackendAPI } from "../apis";
 import {
   CasoDeUsoBuscarContratos,
+  CasoDeUsoGerarAcordo,
   CasoDeUsoSimularAcordo,
 } from "../casosDeUso";
 import {
@@ -25,11 +26,15 @@ const casoDeUsoSimularAcordo = new CasoDeUsoSimularAcordo({
   api,
   simulacaoDeAcordoSerializer,
 });
+const casoDeUsoGerarAcordo = new CasoDeUsoGerarAcordo({
+  api,
+});
 
 const container = {
   casoDeUso: {
     buscarContratos: casoDeUsoBuscarContratos,
     simularAcordo: casoDeUsoSimularAcordo,
+    gerarAcordo: casoDeUsoGerarAcordo,
   },
   validar: {
     cpfCnpj: validarCpfCnpj,

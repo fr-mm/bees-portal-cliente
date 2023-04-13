@@ -1,4 +1,5 @@
 import * as buscarClienteOTD from "./buscarClienteOTD";
 import * as simularAcordoOTD from "./simularAcordoOTD";
+import GerarAcordoOTDEntrada from "./gerarAcordoOTDEntrada";
 
-export { buscarClienteOTD, simularAcordoOTD };
+export { buscarClienteOTD, simularAcordoOTD, GerarAcordoOTDEntrada };

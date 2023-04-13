@@ -12,4 +12,7 @@ export default class AbstractAPI {
   simularAcordo() {
     throw new MetodoAbstratoNaoImplemenetadoErro("simularAcordo");
   }
+  gerarAcordo() {
+    throw new MetodoAbstratoNaoImplemenetadoErro("gerarAcordo");
+  }
 }

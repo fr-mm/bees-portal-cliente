@@ -9,6 +9,8 @@ import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 import Loader from "../../Loader";
 import { ModalSimples } from "../../modal";
+import { GerarAcordoOTDEntrada } from "../../../dominio/otds";
+import { useNavigate } from "react-router-dom";
 
 export default function OfertaRenegociaDivida(props) {
   const qtdParcelasPossiveis = getQtdParcelasPossiveis({ min: 2, max: 12 });
@@ -19,6 +21,8 @@ export default function OfertaRenegociaDivida(props) {
   const [loaded, setLoaded] = useState(false);
   const [fetching, setFetching] = useState(false);
   const [modalGerarAcordoShowing, setModalGerarAcordoShowing] = useState(false);
+  const [errorModalShowing, setErrorModalShowing] = useState(false);
+  const navigate = useNavigate();
 
   function getQtdParcelasPossiveis({ min, max }) {
     const parcelasPossiveis = Array.from(
@@ -39,8 +43,20 @@ export default function OfertaRenegociaDivida(props) {
     }
   }
 
-  function gerarContrato() {
-    setModalGerarAcordoShowing(true);
+  async function gerarContrato() {
+    const otd = new GerarAcordoOTDEntrada({
+      simulacaoId: simulacao.id,
+      qtdParcelas,
+    });
+    try {
+      await container.casoDeUso.gerarAcordo.executar(otd);
+      setModalGerarAcordoShowing(false);
+      navigate("/sucesso");
+    } catch (erro) {
+      setModalGerarAcordoShowing(false);
+      setErrorModalShowing(true);
+      throw erro;
+    }
   }
 
   function sliderOnChange(value) {
@@ -71,8 +87,51 @@ export default function OfertaRenegociaDivida(props) {
     }
   }, [loaded, simularAcordo]);
 
+  function ErrorModal() {
+    if (errorModalShowing) {
+      return (
+        <ModalSimples
+          title="Algo deu errado..."
+          text="Tente novamente mais tarde"
+          buttonText="OK"
+          close={() => setErrorModalShowing(false)}
+          buttonOnClick={() => setErrorModalShowing(false)}
+        />
+      );
+    } else {
+      return <></>;
+    }
+  }
+
+  function ModalGerarAcordo() {
+    if (modalGerarAcordoShowing) {
+      return (
+        <ModalSimples
+          title="Gerar contrato?"
+          text={
+            <p>
+              Seu novo contrato substituirá o contrato <br /> existente. Você
+              receberá uma cópia por e-mail.
+            </p>
+          }
+          buttonText={<div>Sim, gerar contrato.</div>}
+          close={() => {
+            setModalGerarAcordoShowing(false);
+          }}
+          buttonOnClick={() => {
+            gerarContrato();
+          }}
+        />
+      );
+    } else {
+      return <></>;
+    }
+  }
+
   return (
     <>
+      <ErrorModal />
+      <ModalGerarAcordo />
       <div className="container_renegociar_divida">
         <div className="box-title-renegocia-divida">
           <h4>Defina em quantas parcelas você quer pagar a sua renegociação</h4>
@@ -138,32 +197,13 @@ export default function OfertaRenegociaDivida(props) {
           </div>
         </div>
         {simulacao ? (
-          <BlackButton onClick={gerarContrato}>Gerar acordo</BlackButton>
+          <BlackButton onClick={() => setModalGerarAcordoShowing(true)}>
+            Gerar acordo
+          </BlackButton>
         ) : (
           <BlackButton onClick={simularAcordo}>Simular acordo</BlackButton>
         )}
       </div>
-
-      {modalGerarAcordoShowing ? (
-        <ModalSimples
-          title="Gerar contrato?"
-          text={
-            <p>
-              Seu novo contrato substituirá o contrato <br /> existente. Você
-              receberá uma cópia por e-mail.
-            </p>
-          }
-          buttonText={<div>Sim, gerar contrato.</div>}
-          close={() => {
-            setModalGerarAcordoShowing(false);
-          }}
-          buttonOnClick={() => {
-            setModalGerarAcordoShowing(false);
-          }}
-        />
-      ) : (
-        <></>
-      )}
     </>
   );
 }

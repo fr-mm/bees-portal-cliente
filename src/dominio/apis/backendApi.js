@@ -19,4 +19,6 @@ export default class BackendAPI extends AbstractAPI {
   }
 
   async simularAcordo() {}
+
+  async gerarAcordo() {}
 }
