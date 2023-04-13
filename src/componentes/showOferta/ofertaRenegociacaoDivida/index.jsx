@@ -1,29 +1,65 @@
 import "./styles.css";
 import "./slider.css";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ReactSlider from "react-slider";
 import BlackButton from "../../blackButton/BlackButton";
 import MoneyDisplay from "./moneyDisplay";
 import { format } from "../../../auxiliar";
+import container from "../../../dominio/container";
+import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 
-function OfertaRenegociaDivida() {
+function OfertaRenegociaDivida(props) {
+  const qtdParcelasPossiveis = getQtdParcelasPossiveis({ min: 2, max: 12 });
   const [entradaValue, setEntradaValue] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("Em 2 vezes");
-  const [changed, setChanged] = useState(true);
+  const [qtdParcelas, setQtdParcelas] = useState(qtdParcelasPossiveis[0]);
+  const [simulacoes, setSimulacoes] = useState();
+  const [simulacao, setSimulacao] = useState();
+  const [loaded, setLoaded] = useState(false);
 
-  function qtdParcelasOnChange(event) {
-    setSelectedOption(event.target.value);
-    setChanged(true);
+  function getQtdParcelasPossiveis({ min, max }) {
+    const parcelasPossiveis = Array.from(
+      { length: max - min + 1 },
+      (_, i) => i + min
+    );
+    return parcelasPossiveis;
   }
 
-  function simularAcordo() {
-    setChanged(false);
+  function qtdParcelasOnChange(event) {
+    const novaQtd = parseInt(event.target.value);
+    setQtdParcelas(novaQtd);
+    if (simulacoes) {
+      const simulacaoEscolhida = simulacoes.find(
+        (simulac) => simulac.qtdParcelas === novaQtd
+      );
+      setSimulacao(simulacaoEscolhida);
+    }
   }
 
   function sliderOnChange(value) {
     setEntradaValue(value);
-    setChanged(true);
+    setSimulacoes();
+    setSimulacao();
   }
+
+  const simularAcordo = useCallback(async () => {
+    const otdEntrada = new SimularAcordoOTDEntrada({
+      contrato: props.contrato.numero,
+      entrada: entradaValue,
+      qtdParcelasPossiveis,
+    });
+    const otdSaida = await container.casoDeUso.simularAcordo.executar(
+      otdEntrada
+    );
+    setSimulacoes(otdSaida.simulacoes);
+    setSimulacao(otdSaida.simulacoes[0]);
+  }, [entradaValue, props.contrato, qtdParcelasPossiveis]);
+
+  useEffect(() => {
+    if (!loaded) {
+      simularAcordo();
+      setLoaded(true);
+    }
+  }, [loaded, simularAcordo]);
 
   return (
     <div className="container_renegociar_divida">
@@ -62,21 +98,28 @@ function OfertaRenegociaDivida() {
           <div className="box-input-parcelas-renegocia-divida">
             <p>Em quantas parcelas?</p>
             <select
-              value={selectedOption}
+              value={qtdParcelas}
               onChange={qtdParcelasOnChange}
               id="my-select-input"
             >
-              <option value="2">Em 2 vezes</option>
-              <option value="3">Em 3 vezes</option>
+              {qtdParcelasPossiveis.map((qtd) => (
+                <option value={qtd}>Em {qtd} vezes</option>
+              ))}
             </select>
           </div>
-          <MoneyDisplay active={!changed}>R$ [Quantidy $$]</MoneyDisplay>
+          {simulacao ? (
+            <MoneyDisplay active={true}>
+              {format.money(simulacao.valor.daParcela)}
+            </MoneyDisplay>
+          ) : (
+            <MoneyDisplay active={false} />
+          )}
         </div>
       </div>
-      {changed ? (
-        <BlackButton onClick={simularAcordo}>Simular acordo</BlackButton>
-      ) : (
+      {simulacao ? (
         <BlackButton onClick={() => {}}>Gerar acordo</BlackButton>
+      ) : (
+        <BlackButton onClick={simularAcordo}>Simular acordo</BlackButton>
       )}
     </div>
   );

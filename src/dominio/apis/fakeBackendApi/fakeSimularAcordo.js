@@ -1,11 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { random } from "../../../auxiliar";
 
 export default function fakeSimularAcordo(otdEntrada) {
-  const qtdsDeParcelas = Array.from(
-    new Set(random.many(() => faker.datatype.number({ min: 2, max: 48 })))
-  );
-  return qtdsDeParcelas.map((qtdParcelas) =>
+  return otdEntrada.qtdParcelasPossiveis.map((qtdParcelas) =>
     criarFakeSimulacao({ entrada: otdEntrada.entrada, qtdParcelas })
   );
 }

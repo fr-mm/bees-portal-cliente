@@ -1,15 +1,18 @@
 export default class SimularAcordoOTDEntrada {
-  acordo;
+  contrato;
   entrada;
+  qtdParcelasPossiveis;
 
   /**
    * @param{{
-   * acordo: string - número do acordo
+   * contrato: string - número do contrato
    * entrada: number
+   * qtdParcelasPossiveis: number[]
    * }}
    */
-  constructor({ acordo, entrada }) {
-    this.acordo = acordo;
+  constructor({ contrato, entrada, qtdParcelasPossiveis }) {
+    this.contrato = contrato;
     this.entrada = entrada;
+    this.qtdParcelasPossiveis = qtdParcelasPossiveis;
   }
 }

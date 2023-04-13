@@ -68,7 +68,7 @@ export default function ContratoDisplay(props) {
           <QuitarContrato />
         </>
       ) : (
-        <OfertaRenegociaDivida />
+        <OfertaRenegociaDivida contrato={props.contrato} />
       )}
     </div>
   );
