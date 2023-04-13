@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import ProcessamentoReq from "../../componentes/ProcessamentoReq";
 import { BuscaInvalidaErro } from "../../dominio/erros";
 import { ModalSimples } from "../../componentes/modal";
+import Loader from "../../componentes/Loader";
 
 class ErrorModalMessage {
   title;
@@ -107,8 +108,8 @@ function Home() {
   }
 
   function direcionarParaProximaPagina(contexto) {
-    localStorage.setItem(localStorageEnum.lastSearch, search);
-    localStorage.setItem(localStorageEnum.lastSearchType, searchType);
+    sessionStorage.setItem(localStorageEnum.lastSearch, search);
+    sessionStorage.setItem(localStorageEnum.lastSearchType, searchType);
     setBuscaContext(contexto);
     navigate("/oferta");
   }

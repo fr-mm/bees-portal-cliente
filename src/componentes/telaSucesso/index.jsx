@@ -5,7 +5,6 @@ import BlackButton from "../blackButton/BlackButton";
 function TelaSucesso() {
   return (
     <div className="sucesso center">
-      <div className="sucesso bee placeholder" />
       <div className="sucesso message">
         <AiOutlineCheckCircle className="sucesso checked green" />
         <h1 className="sucesso green">Seu novo contrato foi gerado!</h1>
@@ -23,6 +22,8 @@ function TelaSucesso() {
           id="mascote-sucesso"
         />
       </div>
+
+      <div className="bee" />
     </div>
   );
 }

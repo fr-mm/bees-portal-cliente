@@ -5,6 +5,7 @@ import ContratoDisplay from "./ContratoDisplay";
 import container from "../../dominio/container";
 import { useNavigate } from "react-router-dom";
 import { localStorageEnum } from "../../dominio/enums";
+import ProcessamentoReq from "../ProcessamentoReq";
 
 export default function ShowOferta() {
   const navigate = useNavigate();
@@ -15,8 +16,8 @@ export default function ShowOferta() {
   useEffect(() => {
     async function update() {
       if (!searchResult) {
-        const lastSearch = localStorage.getItem(localStorageEnum.lastSearch);
-        const lastSearchType = localStorage.getItem(
+        const lastSearch = sessionStorage.getItem(localStorageEnum.lastSearch);
+        const lastSearchType = sessionStorage.getItem(
           localStorageEnum.lastSearchType
         );
         if (lastSearch && lastSearchType) {
@@ -48,6 +49,7 @@ export default function ShowOferta() {
       } catch (error) {
         // O que acontece se der erro de comunicação com backend
         throw error;
+      } finally {
       }
     }
 
@@ -75,7 +77,6 @@ export default function ShowOferta() {
       </>
     );
   } else {
-    //faz um loader aqui
-    return <></>;
+    return <ProcessamentoReq />;
   }
 }

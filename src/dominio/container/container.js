@@ -1,4 +1,5 @@
 import { FakeBackendAPI } from "../apis";
+import { calcularQtdDeParcelasPossiveis } from "../calculos";
 import {
   CasoDeUsoBuscarContratos,
   CasoDeUsoGerarAcordo,
@@ -39,6 +40,9 @@ const container = {
   validar: {
     cpfCnpj: validarCpfCnpj,
     numeroDeContrato: validarNumeroDeContrato,
+  },
+  calcular: {
+    qtdsDeParcelasPossiveis: calcularQtdDeParcelasPossiveis,
   },
 };
 

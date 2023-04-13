@@ -13,9 +13,11 @@ import { GerarAcordoOTDEntrada } from "../../../dominio/otds";
 import { useNavigate } from "react-router-dom";
 
 export default function OfertaRenegociaDivida(props) {
-  const qtdParcelasPossiveis = getQtdParcelasPossiveis({ min: 2, max: 12 });
+  const qtdsDeParcelasPossiveis = container.calcular.qtdsDeParcelasPossiveis(
+    props.contrato
+  );
+  const [qtdParcelas, setQtdParcelas] = useState(qtdsDeParcelasPossiveis[0]);
   const [entradaValue, setEntradaValue] = useState(0);
-  const [qtdParcelas, setQtdParcelas] = useState(qtdParcelasPossiveis[0]);
   const [simulacoes, setSimulacoes] = useState();
   const [simulacao, setSimulacao] = useState();
   const [loaded, setLoaded] = useState(false);
@@ -23,14 +25,6 @@ export default function OfertaRenegociaDivida(props) {
   const [modalGerarAcordoShowing, setModalGerarAcordoShowing] = useState(false);
   const [errorModalShowing, setErrorModalShowing] = useState(false);
   const navigate = useNavigate();
-
-  function getQtdParcelasPossiveis({ min, max }) {
-    const parcelasPossiveis = Array.from(
-      { length: max - min + 1 },
-      (_, i) => i + min
-    );
-    return parcelasPossiveis;
-  }
 
   function qtdParcelasOnChange(event) {
     const novaQtd = parseInt(event.target.value);
@@ -70,7 +64,7 @@ export default function OfertaRenegociaDivida(props) {
     const otdEntrada = new SimularAcordoOTDEntrada({
       contrato: props.contrato.numero,
       entrada: entradaValue,
-      qtdParcelasPossiveis,
+      qtdParcelasPossiveis: qtdsDeParcelasPossiveis,
     });
     const otdSaida = await container.casoDeUso.simularAcordo.executar(
       otdEntrada
@@ -78,7 +72,7 @@ export default function OfertaRenegociaDivida(props) {
     setFetching(false);
     setSimulacoes(otdSaida.simulacoes);
     setSimulacao(otdSaida.simulacoes[0]);
-  }, [entradaValue, props.contrato, qtdParcelasPossiveis]);
+  }, [entradaValue, props.contrato, qtdsDeParcelasPossiveis]);
 
   useEffect(() => {
     if (!loaded) {
@@ -131,7 +125,6 @@ export default function OfertaRenegociaDivida(props) {
   return (
     <>
       <ErrorModal />
-      <ModalGerarAcordo />
       <div className="container_renegociar_divida">
         <div className="box-title-renegocia-divida">
           <h4>Defina em quantas parcelas você quer pagar a sua renegociação</h4>
@@ -176,7 +169,7 @@ export default function OfertaRenegociaDivida(props) {
                 onChange={qtdParcelasOnChange}
                 className="parcelas-select"
               >
-                {qtdParcelasPossiveis.map((qtd) => (
+                {qtdsDeParcelasPossiveis.map((qtd) => (
                   <option value={qtd}>Em {qtd} vezes</option>
                 ))}
               </select>

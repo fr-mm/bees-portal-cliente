@@ -1,0 +1,19 @@
+.sucesso-container {
+  display: flex;
+}
+.sucesso-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+.sucesso.checked {
+  display: flex;
+  width: 10em;
+  height: 10em;
+}
+
+.sucesso.green {
+  color: #008000;
+}
