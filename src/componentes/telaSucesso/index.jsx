@@ -2,18 +2,16 @@ import "./styles.css";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import BlackButton from "../blackButton/BlackButton";
 
-function TelaSucesso() {
+function TelaSucesso(props) {
   return (
     <div className="sucesso center">
       <div className="sucesso message">
-        <AiOutlineCheckCircle className="sucesso checked green" />
+        <AiOutlineCheckCircle id="sucesso-checked" />
         <h1 className="sucesso green">Seu novo contrato foi gerado!</h1>
         <p>
           Enviaremos uma cópia por e-mail e incluiremos as opções de pagamento.
         </p>
-        <BlackButton width="5em" onClick={() => {}}>
-          Fechar
-        </BlackButton>
+        <BlackButton onClick={props.close}>Fechar</BlackButton>
       </div>
       <div className="sucesso bee">
         <img

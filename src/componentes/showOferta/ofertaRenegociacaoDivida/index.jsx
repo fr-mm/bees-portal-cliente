@@ -8,11 +8,10 @@ import { format } from "../../../auxiliar";
 import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 import Loader from "../../Loader";
-import { Modal, ModalSimples } from "../../modal";
+import { ModalSimples } from "../../modal";
 import { GerarAcordoOTDEntrada } from "../../../dominio/otds";
-import { useNavigate } from "react-router-dom";
-import { AiFillCloseCircle } from "react-icons/ai";
 import ModalTelefone from "../../modal/modalTelefoneEmail";
+import TelaSucesso from "../../telaSucesso";
 
 export default function OfertaRenegociaDivida(props) {
   const qtdsDeParcelasPossiveis = container.calcular.qtdsDeParcelasPossiveis(
@@ -22,11 +21,12 @@ export default function OfertaRenegociaDivida(props) {
   const [entradaValue, setEntradaValue] = useState(0);
   const [simulacoes, setSimulacoes] = useState();
   const [simulacao, setSimulacao] = useState();
+  const [modalTelefone, setModalTelefone] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [fetching, setFetching] = useState(false);
   const [modalGerarAcordoShowing, setModalGerarAcordoShowing] = useState(false);
+  const [modalSucessoShowing, setModalSucessoShowing] = useState(false);
   const [errorModalShowing, setErrorModalShowing] = useState(false);
-  const navigate = useNavigate();
 
   function qtdParcelasOnChange(event) {
     const novaQtd = parseInt(event.target.value);
@@ -47,7 +47,7 @@ export default function OfertaRenegociaDivida(props) {
     try {
       await container.casoDeUso.gerarAcordo.executar(otd);
       setModalGerarAcordoShowing(false);
-      navigate("/sucesso");
+      setModalSucessoShowing(true);
     } catch (erro) {
       setModalGerarAcordoShowing(false);
       setErrorModalShowing(true);
@@ -126,8 +126,30 @@ export default function OfertaRenegociaDivida(props) {
 
   return (
     <>
+      {modalSucessoShowing ? (
+        <TelaSucesso
+          close={() => {
+            setModalSucessoShowing(false);
+          }}
+        />
+      ) : (
+        <></>
+      )}
       <ErrorModal />
       <ModalGerarAcordo />
+      {modalTelefone ? (
+        <ModalTelefone
+          close={() => {
+            setModalTelefone(false);
+          }}
+          onClick={() => {
+            setModalGerarAcordoShowing(true);
+            setModalTelefone(false);
+          }}
+        />
+      ) : (
+        <></>
+      )}
       <div className="container_renegociar_divida">
         <div className="box-title-renegocia-divida">
           <h4>Defina em quantas parcelas você quer pagar a sua renegociação</h4>
@@ -173,7 +195,9 @@ export default function OfertaRenegociaDivida(props) {
                 className="parcelas-select"
               >
                 {qtdsDeParcelasPossiveis.map((qtd) => (
-                  <option value={qtd}>Em {qtd} vezes</option>
+                  <option value={qtd} key={qtd}>
+                    Em {qtd} vezes
+                  </option>
                 ))}
               </select>
             </div>
@@ -193,7 +217,7 @@ export default function OfertaRenegociaDivida(props) {
           </div>
         </div>
         {simulacao ? (
-          <BlackButton onClick={() => setModalGerarAcordoShowing(true)}>
+          <BlackButton onClick={() => setModalTelefone(true)}>
             Gerar acordo
           </BlackButton>
         ) : (

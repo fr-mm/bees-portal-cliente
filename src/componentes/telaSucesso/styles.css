@@ -1,0 +1,47 @@
+.sucesso-container {
+    display: flex;
+  }
+  .sucesso.center{
+    display: flex;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5em;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+  .sucesso-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+  #sucesso-checked {
+    width: 6em;
+    height: 6em;
+    color: #008000;
+  }
+  .sucesso.message p {
+    font-size: 1.3em;
+    color: #424242;
+  }
+  .sucesso.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70%;
+  }
+  .sucesso.bee{
+    height: 90%;
+  }
+  #mascote-sucesso {
+    width: 15em;
+    height: 20em;
+  }

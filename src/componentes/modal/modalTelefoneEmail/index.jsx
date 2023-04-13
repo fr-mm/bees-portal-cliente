@@ -25,13 +25,25 @@ function ModalTelefone(props) {
         </div>
         <form id="formulario-telefone">
           <label for="cellphone">Número do WhatsApp</label>
-          <input type="tel" id="cellphone" name="cellphone" />
+          <input
+            htmlFor="cellphone"
+            type="tel"
+            id="cellphone"
+            name="cellphone"
+            key="inputCeelphone"
+          />
 
           <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" />
+          <input
+            htmlFor="email"
+            type="email"
+            id="email"
+            name="email"
+            key="inputEmail"
+          />
 
           <div id="box-btn-submit-telefone">
-            <BlackButton type="submit">Confirmar</BlackButton>
+            <BlackButton onClick={props.onClick}>Confirmar</BlackButton>
           </div>
         </form>
       </div>

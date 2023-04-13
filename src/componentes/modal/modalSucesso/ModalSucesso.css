@@ -1,5 +1,9 @@
 .sucesso-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
 }
 .sucesso-text-container {
   display: flex;
