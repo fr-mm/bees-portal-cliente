@@ -57,6 +57,7 @@
   display: flex;
   justify-content: space-between;
   width: 68%;
+  margin-bottom: auto;
 }
 #my-select-input {
   text-align: center;

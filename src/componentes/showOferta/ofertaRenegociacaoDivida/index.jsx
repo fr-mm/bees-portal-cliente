@@ -7,6 +7,7 @@ import MoneyDisplay from "./moneyDisplay";
 import { format } from "../../../auxiliar";
 import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
+import Loader from "../../Loader";
 
 function OfertaRenegociaDivida(props) {
   const qtdParcelasPossiveis = getQtdParcelasPossiveis({ min: 2, max: 12 });
@@ -15,6 +16,7 @@ function OfertaRenegociaDivida(props) {
   const [simulacoes, setSimulacoes] = useState();
   const [simulacao, setSimulacao] = useState();
   const [loaded, setLoaded] = useState(false);
+  const [fetching, setFetching] = useState(false);
 
   function getQtdParcelasPossiveis({ min, max }) {
     const parcelasPossiveis = Array.from(
@@ -42,6 +44,7 @@ function OfertaRenegociaDivida(props) {
   }
 
   const simularAcordo = useCallback(async () => {
+    setFetching(true);
     const otdEntrada = new SimularAcordoOTDEntrada({
       contrato: props.contrato.numero,
       entrada: entradaValue,
@@ -50,6 +53,7 @@ function OfertaRenegociaDivida(props) {
     const otdSaida = await container.casoDeUso.simularAcordo.executar(
       otdEntrada
     );
+    setFetching(false);
     setSimulacoes(otdSaida.simulacoes);
     setSimulacao(otdSaida.simulacoes[0]);
   }, [entradaValue, props.contrato, qtdParcelasPossiveis]);
@@ -111,6 +115,8 @@ function OfertaRenegociaDivida(props) {
             <MoneyDisplay active={true}>
               {format.money(simulacao.valor.daParcela)}
             </MoneyDisplay>
+          ) : fetching ? (
+            <Loader />
           ) : (
             <MoneyDisplay active={false} />
           )}
