@@ -32,6 +32,12 @@ function Home() {
     text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
     img: "/img/SVG_Graphic.svg",
   });
+  const validacaoMap = new Map();
+  validacaoMap.set(tipoDeBuscaEnum.cpfCnpj, container.validar.cpfCnpj);
+  validacaoMap.set(
+    tipoDeBuscaEnum.contrato,
+    container.validar.numeroDeContrato
+  );
 
   function buscaOnChange(event) {
     setSearch(event.target.value);
@@ -78,7 +84,8 @@ function Home() {
 
   function validarBusca() {
     try {
-      return container.validar.cpfCnpj(search);
+      const validar = validacaoMap.get(searchType);
+      return validar(search);
     } catch (erro) {
       if (erro instanceof BuscaInvalidaErro) {
         setErrorModalMessage(
