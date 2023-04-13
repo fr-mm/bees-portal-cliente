@@ -13,9 +13,8 @@ export default class CasoDeUsoSimularAcordo {
   async executar(otdEntrada) {
     const response = await this.#api.simularAcordo(otdEntrada);
     if (response.status === 200) {
-      return new SimularAcordoOTDSaida({
-        simulacoes: response.data.map(this.#simulacaoDeAcordoSerializer.parse),
-      });
+      const simulacoes = this.#serializeResponseData(response.data);
+      return new SimularAcordoOTDSaida({ simulacoes });
     } else if (response.status === 404) {
       throw new BuscaSemResutadoErro();
     } else if (response.status === 400) {
@@ -23,5 +22,14 @@ export default class CasoDeUsoSimularAcordo {
     } else {
       throw new Error(`${response.status}: ${response.data}`);
     }
+  }
+
+  #serializeResponseData(data) {
+    const result = [];
+    for (let item of data) {
+      const serialized = this.#simulacaoDeAcordoSerializer.parse(item);
+      result.push(serialized);
+    }
+    return result;
   }
 }

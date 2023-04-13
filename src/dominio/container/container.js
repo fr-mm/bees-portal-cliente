@@ -1,14 +1,34 @@
 import { FakeBackendAPI } from "../apis";
-import { CasoDeUsoBuscarContratos } from "../casosDeUso";
-import { ClienteSerializer, ContratoSerializer } from "../serializers";
+import {
+  CasoDeUsoBuscarContratos,
+  CasoDeUsoSimularAcordo,
+} from "../casosDeUso";
+import {
+  ClienteSerializer,
+  ContratoSerializer,
+  SimulacaoDeAcordoSerializer,
+} from "../serializers";
+
+const api = new FakeBackendAPI();
+
+const contratoSerializer = new ContratoSerializer();
+const clienteSerializer = new ClienteSerializer();
+const simulacaoDeAcordoSerializer = new SimulacaoDeAcordoSerializer();
+
+const casoDeUsoBuscarContratos = new CasoDeUsoBuscarContratos({
+  api,
+  contratoSerializer,
+  clienteSerializer,
+});
+const casoDeUsoSimularAcordo = new CasoDeUsoSimularAcordo({
+  api,
+  simulacaoDeAcordoSerializer,
+});
 
 const container = {
   casoDeUso: {
-    buscarContratos: new CasoDeUsoBuscarContratos({
-      api: new FakeBackendAPI(),
-      contratoSerializer: new ContratoSerializer(),
-      clienteSerializer: new ClienteSerializer(),
-    }),
+    buscarContratos: casoDeUsoBuscarContratos,
+    simularAcordo: casoDeUsoSimularAcordo,
   },
 };
 

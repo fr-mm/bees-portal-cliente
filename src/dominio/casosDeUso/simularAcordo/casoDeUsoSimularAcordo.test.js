@@ -1,24 +1,21 @@
 import CasoDeUsoSimularAcordo from "./casoDeUsoSimularAcordo";
 import { MockApiResponse, MockBackendAPI, MockSerializer } from "../../mocks";
-import {
-  SimularAcordoOTDEntrada,
-  SimularAcordoOTDSaida,
-} from "../../otds/simularAcordoOTD";
+import { SimularAcordoOTDSaida } from "../../otds/simularAcordoOTD";
 
 describe("CasoDeUsoSimularAcordo", () => {
   describe(".executar", () => {
     describe("QUANDO otdEntrada váido", () => {
       test("retorna otd esperado", async () => {
         const otdEntradaMock = "otdEntrada";
-        const serializerReturnMock = "serialized";
-        const apiReturnMock = new MockApiResponse([serializerReturnMock]);
+        const serializedItem = "serialized";
+        const unserializedItem = "unserialized";
         const apiMock = new MockBackendAPI({
-          entradaEsperada: otdEntradaMock,
-          retorno: new MockApiResponse(apiReturnMock),
+          expected: otdEntradaMock,
+          result: new MockApiResponse([unserializedItem]),
         });
         const serializerMock = new MockSerializer({
-          expected: otdEntradaMock,
-          result: serializerReturnMock,
+          expected: unserializedItem,
+          result: serializedItem,
         });
         const casoDeUso = new CasoDeUsoSimularAcordo({
           api: apiMock,
@@ -28,7 +25,7 @@ describe("CasoDeUsoSimularAcordo", () => {
         const otdSaida = await casoDeUso.executar(otdEntradaMock);
 
         const otdSaidaEsperado = new SimularAcordoOTDSaida({
-          simulacoes: [serializerReturnMock],
+          simulacoes: [serializedItem],
         });
         expect(otdSaida).toEqual(otdSaidaEsperado);
       });
