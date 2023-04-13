@@ -8,6 +8,7 @@ import {
   ContratoSerializer,
   SimulacaoDeAcordoSerializer,
 } from "../serializers";
+import { validarCpfCnpj, validarNumeroDeContrato } from "../validacoes";
 
 const api = new FakeBackendAPI();
 
@@ -29,6 +30,10 @@ const container = {
   casoDeUso: {
     buscarContratos: casoDeUsoBuscarContratos,
     simularAcordo: casoDeUsoSimularAcordo,
+  },
+  validar: {
+    cpfCnpj: validarCpfCnpj,
+    numeroDeContrato: validarNumeroDeContrato,
   },
 };
 

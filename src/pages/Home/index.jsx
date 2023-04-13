@@ -7,14 +7,24 @@ import container from "../../dominio/container";
 import { useUser } from "../../hook";
 import { useNavigate } from "react-router-dom";
 import ProcessamentoReq from "../../componentes/ProcessamentoReq";
-import BuscaDocInvalida from "../../componentes/buscaDocumentoInvalido";
+import { BuscaInvalidaErro } from "../../dominio/erros";
+import { ModalSimples } from "../../componentes/modal";
+
+class ErrorModalMessage {
+  title;
+  text;
+
+  constructor({ title, text }) {
+    this.title = title;
+    this.text = text;
+  }
+}
 
 function Home() {
   const navigate = useNavigate();
   const { setBuscaContext } = useUser();
   const [search, setSearch] = useState("");
-  const [modalBuscaInvalidaShowing, setModalBuscaInvalidaShowing] =
-    useState(false);
+  const [errorModalMessage, setErrorModalMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
@@ -32,6 +42,10 @@ function Home() {
   }
 
   async function doSearch() {
+    const buscaValidada = validarBusca();
+    if (!buscaValidada) {
+      return;
+    }
     setLoading(true);
     try {
       const otd = await container.casoDeUso.buscarContratos.executar({
@@ -39,24 +53,57 @@ function Home() {
         tipo: searchType,
       });
 
-      // throw new Error("Erro para validar modal de busca invalida");
       if (otd.contratos.length === 0) {
-        // O que acntece se não tiver contratos
-        console.log("cliente não tem contratos");
+        setErrorModalMessage(
+          new ErrorModalMessage({
+            title: "Sem dívidas",
+            text: "Não encontramos dívidas",
+          })
+        );
       }
 
-      // muda de rota e passa os contratos pra nova rota
-      localStorage.setItem(localStorageEnum.lastSearch, search);
-      localStorage.setItem(localStorageEnum.lastSearchType, searchType);
-      setBuscaContext(otd);
-      navigate("/oferta");
+      direcionarParaProximaPagina(otd);
     } catch (error) {
-      // O que acontece se der erro de comunicação com backend
-      setModalBuscaInvalidaShowing(true);
+      setErrorModalMessage(
+        new ErrorModalMessage({
+          title: "Algo deu errado",
+          text: "Tente novamente mais tarde",
+        })
+      );
       throw error;
     } finally {
       setLoading(false);
     }
+  }
+
+  function validarBusca() {
+    try {
+      return container.validar.cpfCnpj(search);
+    } catch (erro) {
+      if (erro instanceof BuscaInvalidaErro) {
+        setErrorModalMessage(
+          new ErrorModalMessage({
+            title: "Número inválido",
+            text: (
+              <p>
+                Confirme seu CPF/CNPJ ou o número do <br />
+                contrato e tente novamente
+              </p>
+            ),
+          })
+        );
+        return false;
+      } else {
+        throw erro;
+      }
+    }
+  }
+
+  function direcionarParaProximaPagina(contexto) {
+    localStorage.setItem(localStorageEnum.lastSearch, search);
+    localStorage.setItem(localStorageEnum.lastSearchType, searchType);
+    setBuscaContext(contexto);
+    navigate("/oferta");
   }
 
   const testimonials = [
@@ -142,14 +189,19 @@ function Home() {
   function buttonTestimonial(current) {
     setCurrentTestimonial(testimonials[current]);
   }
+  function hideErrorModal() {
+    setErrorModalMessage(null);
+  }
   return (
     <div className="container-home">
       <Header />
-      {modalBuscaInvalidaShowing ? (
-        <BuscaDocInvalida
-          close={() => {
-            setModalBuscaInvalidaShowing(false);
-          }}
+      {errorModalMessage ? (
+        <ModalSimples
+          title={errorModalMessage.title}
+          text={errorModalMessage.text}
+          close={hideErrorModal}
+          buttonText="Tentar novamente"
+          buttonOnClick={hideErrorModal}
         />
       ) : (
         <></>
