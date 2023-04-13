@@ -4,27 +4,24 @@ import BlackButton from "../blackButton/BlackButton";
 
 function TelaSucesso() {
   return (
-    <div className="container-sucesso">
-      <div className="container-tile container-img">
-        <div className="box-tilte-sucesso">
-          <AiOutlineCheckCircle id="check-sucesso" />
-          <h2>Seu novo contrato foi gerado!</h2>
-        </div>
-        <div className="box-mascote-sucesso">
-          <img
-            src="/img/mascotBees.svg"
-            alt="mascote-bees"
-            id="mascote-sucesso"
-          />
-        </div>
-      </div>
-      <div className="box-text-sucesso">
+    <div className="sucesso center">
+      <div className="sucesso bee placeholder" />
+      <div className="sucesso message">
+        <AiOutlineCheckCircle className="sucesso checked green" />
+        <h1 className="sucesso green">Seu novo contrato foi gerado!</h1>
         <p>
           Enviaremos uma cópia por e-mail e incluiremos as opções de pagamento.
         </p>
-        <div className="btn-tela-sucesso">
-          <BlackButton onClick={() => {}}>Fechar</BlackButton>
-        </div>
+        <BlackButton width="5em" onClick={() => {}}>
+          Fechar
+        </BlackButton>
+      </div>
+      <div className="sucesso bee">
+        <img
+          src="/img/mascotBees.svg"
+          alt="mascote-bees"
+          id="mascote-sucesso"
+        />
       </div>
     </div>
   );
