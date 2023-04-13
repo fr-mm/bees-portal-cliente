@@ -43,13 +43,13 @@
     align-items: center;
 }
 .container-busca-cpf h5{
-    font-size: 1.3rem;
+    font-size: 1.3em;
 }
 .container-busca-cpf p, 
 .box-radio label, 
 .container-title-beneficios p
 {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     color: #424242;
 }
 .container-radio-home {

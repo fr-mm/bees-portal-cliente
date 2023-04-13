@@ -5,10 +5,13 @@ import ContratoDisplay from "./ContratoDisplay";
 import container from "../../dominio/container";
 import { useNavigate } from "react-router-dom";
 import { localStorageEnum } from "../../dominio/enums";
+import ModalSimples from "../modal/modalSimples/ModalSimples";
+import Modal from "../modal/Modal";
 
 function ShowOferta() {
   const navigate = useNavigate();
   const { buscaContext } = useUser();
+  const [modalSimpesOpen, setModalSimplesOpen] = useState(true);
   const [searchResult, setSearchResult] = useState(buscaContext);
   const [loaded, setLoaded] = useState(false);
 
@@ -56,21 +59,43 @@ function ShowOferta() {
 
   if (loaded) {
     return (
-      <div className="oferta">
-        <div className="container-alert">
-          <p>
-            Atenção: Não esqueça de pagar o(s) boleto(s) até a data de
-            vencimento! Esse contrato será mantido somente se o pagamento for
-            realizado dentro do prazo.
-          </p>
+      <>
+        {modalSimpesOpen ? (
+          <ModalSimples
+            title="Gerar contrato?"
+            text={
+              <p>
+                Seu novo contrato substituirá o contrato <br /> existente. Você
+                receberá uma cópia por e-mail.
+              </p>
+            }
+            buttonText={<div>Sim, gerar contrato.</div>}
+            close={() => {
+              setModalSimplesOpen(false);
+            }}
+            buttonOnclick={() => {
+              setModalSimplesOpen(false);
+            }}
+          />
+        ) : (
+          <></>
+        )}
+        <div className="oferta">
+          <div className="container-alert">
+            <p>
+              Atenção: Não esqueça de pagar o(s) boleto(s) até a data de
+              vencimento! Esse contrato será mantido somente se o pagamento for
+              realizado dentro do prazo.
+            </p>
+          </div>
+          <h1 className="titulo-nome-cliente">
+            Boas vindas {searchResult.cliente.nome}
+          </h1>
+          {searchResult.contratos.map((contrato) => (
+            <ContratoDisplay key={contrato.numero} contrato={contrato} />
+          ))}
         </div>
-        <h1 className="titulo-nome-cliente">
-          Boas vindas {searchResult.cliente.nome}
-        </h1>
-        {searchResult.contratos.map((contrato) => (
-          <ContratoDisplay key={contrato.numero} contrato={contrato} />
-        ))}
-      </div>
+      </>
     );
   } else {
     //faz um loader aqui
@@ -79,4 +104,3 @@ function ShowOferta() {
 }
 
 export default ShowOferta;
-

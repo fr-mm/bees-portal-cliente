@@ -5,10 +5,10 @@
   all: unset;
   display: flex;
   padding: 0.8em;
+  user-select: none;
   justify-content: center;
   align-items: center;
   background-color: black;
-  width: 15.5em;
   font-size: 0.9rem;
   border-radius: 2em;
   color: aliceblue;

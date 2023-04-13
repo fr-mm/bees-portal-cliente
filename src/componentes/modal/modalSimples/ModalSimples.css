@@ -1,0 +1,27 @@
+.modal-simples.container {
+  display: flex;
+  width: 25em;
+  min-height: 15em;
+}
+.modal-simples.title {
+  display: flex;
+}
+.modal-simples.title h1 {
+  padding-top: 0.3em;
+  margin-right: auto;
+  margin-bottom: 1.3em;
+}
+
+.modal-simples.close {
+  margin-left: auto;
+  font-size: 2em;
+  user-select: none;
+  cursor: pointer;
+}
+.modal-simples.text {
+  margin-bottom: auto;
+}
+.modal-simples.button {
+  display: flex;
+  margin-left: auto;
+}
