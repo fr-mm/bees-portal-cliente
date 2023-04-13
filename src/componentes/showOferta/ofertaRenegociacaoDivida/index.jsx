@@ -8,9 +8,11 @@ import { format } from "../../../auxiliar";
 import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 import Loader from "../../Loader";
-import { ModalSimples } from "../../modal";
+import { Modal, ModalSimples } from "../../modal";
 import { GerarAcordoOTDEntrada } from "../../../dominio/otds";
 import { useNavigate } from "react-router-dom";
+import { AiFillCloseCircle } from "react-icons/ai";
+import ModalTelefone from "../../modal/modalTelefoneEmail";
 
 export default function OfertaRenegociaDivida(props) {
   const qtdParcelasPossiveis = getQtdParcelasPossiveis({ min: 2, max: 12 });
@@ -132,6 +134,7 @@ export default function OfertaRenegociaDivida(props) {
     <>
       <ErrorModal />
       <ModalGerarAcordo />
+      <ModalTelefone />
       <div className="container_renegociar_divida">
         <div className="box-title-renegocia-divida">
           <h4>Defina em quantas parcelas você quer pagar a sua renegociação</h4>

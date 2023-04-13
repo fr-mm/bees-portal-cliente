@@ -1,0 +1,49 @@
+.container-modal-infos-telefone {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .box-title.modal-infos-pessoal{
+    display: flex;
+    justify-content: space-between;
+    gap: 4em;
+  }
+  .box-title.modal-infos-pessoal h1{
+    font-size: 1.6em;
+  }
+  .modal-tile-telefone.close{
+    width: 2.5em;
+    height: 2.5em;
+    cursor: pointer;
+  }
+  .box-text.modal-infos-text{
+    text-align: start;
+    font-size: 1.2em;
+    color: #424242;
+  }
+  #formulario-telefone {
+    display: flex;
+    flex-direction:column;
+    gap: 1em;
+  }
+  #formulario-telefone label{
+font-weight: bold;
+  }
+  #cellphone,#email {
+    all: unset;
+    width: 100%;
+    padding-left: 0.5em;
+    font-size: 1.2em;
+    color: #424242;
+    height: 3em;
+    border: 1px solid #424242;
+    border-radius: 0.8em;
+ 
+  }
+  #box-btn-submit-telefone {
+    display: flex;
+    width: 100%;
+    height: 3em;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
