@@ -8,8 +8,9 @@ import { format } from "../../../auxiliar";
 import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 import Loader from "../../Loader";
+import { ModalSimples } from "../../modal";
 
-function OfertaRenegociaDivida(props) {
+export default function OfertaRenegociaDivida(props) {
   const qtdParcelasPossiveis = getQtdParcelasPossiveis({ min: 2, max: 12 });
   const [entradaValue, setEntradaValue] = useState(0);
   const [qtdParcelas, setQtdParcelas] = useState(qtdParcelasPossiveis[0]);
@@ -17,6 +18,7 @@ function OfertaRenegociaDivida(props) {
   const [simulacao, setSimulacao] = useState();
   const [loaded, setLoaded] = useState(false);
   const [fetching, setFetching] = useState(false);
+  const [modalGerarAcordoShowing, setModalGerarAcordoShowing] = useState(false);
 
   function getQtdParcelasPossiveis({ min, max }) {
     const parcelasPossiveis = Array.from(
@@ -35,6 +37,10 @@ function OfertaRenegociaDivida(props) {
       );
       setSimulacao(simulacaoEscolhida);
     }
+  }
+
+  function gerarContrato() {
+    setModalGerarAcordoShowing(true);
   }
 
   function sliderOnChange(value) {
@@ -66,76 +72,98 @@ function OfertaRenegociaDivida(props) {
   }, [loaded, simularAcordo]);
 
   return (
-    <div className="container_renegociar_divida">
-      <div className="box-title-renegocia-divida">
-        <h4>Defina em quantas parcelas você quer pagar a sua renegociação</h4>
+    <>
+      <div className="container_renegociar_divida">
+        <div className="box-title-renegocia-divida">
+          <h4>Defina em quantas parcelas você quer pagar a sua renegociação</h4>
+        </div>
+
+        <div className="box-input-e-label">
+          <div className="box-label-input-range">
+            <p>Entrada mínima</p>
+            <p>Entrada máxima</p>
+          </div>
+          <ReactSlider
+            className="slider"
+            thumbClassName="thumb"
+            trackClassName="track"
+            max={200}
+            onChange={sliderOnChange}
+            renderThumb={(props, state) => (
+              <div {...props}>
+                <div className="box-container">
+                  <div className="box">R$ {entradaValue}</div>
+                </div>
+              </div>
+            )}
+          />
+        </div>
+        <div className="box-infos-renegocia-divida">
+          <div className="lower-box left">
+            <div className="lower-box-title">
+              <p>Entrada</p>
+            </div>
+            <div className="centered-money-display">
+              <MoneyDisplay active={true}>
+                {format.money(entradaValue)}
+              </MoneyDisplay>
+            </div>
+          </div>
+          <div className="lower-box">
+            <div className="lower-box-title">
+              <p>Em quantas parcelas?</p>
+              <select
+                value={qtdParcelas}
+                onChange={qtdParcelasOnChange}
+                className="parcelas-select"
+              >
+                {qtdParcelasPossiveis.map((qtd) => (
+                  <option value={qtd}>Em {qtd} vezes</option>
+                ))}
+              </select>
+            </div>
+            <div className="centered-money-display">
+              {simulacao ? (
+                <MoneyDisplay active={true}>
+                  {format.money(simulacao.valor.daParcela)}
+                </MoneyDisplay>
+              ) : fetching ? (
+                <div className="money-display-loader-container">
+                  <Loader />
+                </div>
+              ) : (
+                <MoneyDisplay active={false} />
+              )}
+            </div>
+          </div>
+        </div>
+        {simulacao ? (
+          <BlackButton onClick={gerarContrato}>Gerar acordo</BlackButton>
+        ) : (
+          <BlackButton onClick={simularAcordo}>Simular acordo</BlackButton>
+        )}
       </div>
 
-      <div className="box-input-e-label">
-        <div className="box-label-input-range">
-          <p>Entrada mínima</p>
-          <p>Entrada máxima</p>
-        </div>
-        <ReactSlider
-          className="slider"
-          thumbClassName="thumb"
-          trackClassName="track"
-          max={200}
-          onChange={sliderOnChange}
-          renderThumb={(props, state) => (
-            <div {...props}>
-              <div className="box-container">
-                <div className="box">R$ {entradaValue}</div>
-              </div>
-            </div>
-          )}
+      {modalGerarAcordoShowing ? (
+        <ModalSimples
+          title="Gerar contrato?"
+          text={
+            <p>
+              Seu novo contrato substituirá o contrato <br /> existente. Você
+              receberá uma cópia por e-mail.
+            </p>
+          }
+          buttonText={<div>Sim, gerar contrato.</div>}
+          close={() => {
+            setModalGerarAcordoShowing(false);
+          }}
+          buttonOnClick={() => {
+            setModalGerarAcordoShowing(false);
+          }}
         />
-      </div>
-      <div className="box-infos-renegocia-divida">
-        <div className="lower-box left">
-          <div className="lower-box-title">
-            <p>Entrada</p>
-          </div>
-          <div className="centered-money-display">
-            <MoneyDisplay active={true}>
-              {format.money(entradaValue)}
-            </MoneyDisplay>
-          </div>
-        </div>
-        <div className="lower-box">
-          <div className="lower-box-title">
-            <p>Em quantas parcelas?</p>
-            <select
-              value={qtdParcelas}
-              onChange={qtdParcelasOnChange}
-              className="parcelas-select"
-            >
-              {qtdParcelasPossiveis.map((qtd) => (
-                <option value={qtd}>Em {qtd} vezes</option>
-              ))}
-            </select>
-          </div>
-          <div className="centered-money-display">
-            {simulacao ? (
-              <MoneyDisplay active={true}>
-                {format.money(simulacao.valor.daParcela)}
-              </MoneyDisplay>
-            ) : fetching ? (
-              <div className="money-display-loader-container">
-                <Loader />
-              </div>
-            ) : (
-              <MoneyDisplay active={false} />
-            )}
-          </div>
-        </div>
-      </div>
-      {simulacao ? (
-        <BlackButton onClick={() => {}}>Gerar acordo</BlackButton>
       ) : (
-        <BlackButton onClick={simularAcordo}>Simular acordo</BlackButton>
+        <></>
       )}
-    </div>
+    </>
   );
 }
-export default OfertaRenegociaDivida;
