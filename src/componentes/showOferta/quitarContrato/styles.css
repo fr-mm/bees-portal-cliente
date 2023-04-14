@@ -20,17 +20,10 @@
     align-items: center;
     width: 99%;
 }
-.btn-quitar-contrato{
-    all: unset;
+.box-btn-pagar-acordo-inteiro {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.9rem;
-    background-color: black;
-    width: 15rem;
-    height: 2rem;
-    border-radius: 2rem;
-    color: aliceblue;
-    padding: 0.2rem;
-    cursor: pointer;
-  }
+    width: 100%;
+
+}

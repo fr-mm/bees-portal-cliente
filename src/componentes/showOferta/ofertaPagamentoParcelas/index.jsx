@@ -23,7 +23,7 @@ function OfertaPagamentoParcelas(props) {
           <p className="titulo__">Pague o valor de</p>
           <p className="valor_parcela">TBD</p>
         </div>
-        <div className="box-btn-gerar-acordo">
+        <div id="box-btn-gerar-acordo">
           <BlackButton onClick={() => {}}>
             Gerar acordo parcelas vencidas
           </BlackButton>

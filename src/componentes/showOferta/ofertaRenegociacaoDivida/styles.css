@@ -51,6 +51,7 @@
 .lower-box-title {
   display: flex;
   flex: 1;
+  width: 50%;
   margin: 0 10em;
   min-height: 3em;
   align-items: center;

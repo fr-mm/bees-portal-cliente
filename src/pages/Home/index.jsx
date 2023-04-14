@@ -30,7 +30,8 @@ function Home() {
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
     title: "Fácil de usar",
-    text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
+    text:
+      "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
     img: "/img/SVG_Graphic.svg",
   });
   const validacaoMap = new Map();
@@ -117,13 +118,15 @@ function Home() {
   const testimonials = [
     {
       title: "Fácil de usar",
-      text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
+      text:
+        "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },
     {
       title: "100% seguro",
-      text: "É rápido e fácil. As parcelas são submetidas a uma análise para garantir a melhor segurança de que você está pagando corretamente",
+      text:
+        "É rápido e fácil. As parcelas são submetidas a uma análise para garantir a melhor segurança de que você está pagando corretamente",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },
@@ -226,30 +229,26 @@ function Home() {
 
           <form className="container-radio-home">
             <div className="box-radio">
-              <label>
-                <input
-                  id="radio-home"
-                  type="radio"
-                  name="opcao"
-                  value={tipoDeBuscaEnum.cpfCnpj}
-                  checked={searchType === tipoDeBuscaEnum.cpfCnpj}
-                  onChange={changeSearchType}
-                />{" "}
-                CPF/CNPJ
-              </label>
+              <input
+                type="radio"
+                id="myRadio"
+                name="myRadioGroup"
+                value={tipoDeBuscaEnum.cpfCnpj}
+                checked={searchType === tipoDeBuscaEnum.cpfCnpj}
+                onChange={changeSearchType}
+              />
+              <label for="myRadio">CPF/CNPJ</label>
             </div>
             <div className="box-radio">
-              <label>
-                <input
-                  id="radio-home"
-                  type="radio"
-                  name="opcao"
-                  value={tipoDeBuscaEnum.contrato}
-                  checked={searchType === tipoDeBuscaEnum.contrato}
-                  onChange={changeSearchType}
-                />{" "}
-                CONTRATO
-              </label>
+              <input
+                type="radio"
+                id="myRadio2"
+                name="myRadioGroup"
+                value={tipoDeBuscaEnum.contrato}
+                checked={searchType === tipoDeBuscaEnum.contrato}
+                onChange={changeSearchType}
+              />
+              <label for="myRadio2">CONTRATO</label>
             </div>
           </form>
           <div className="container-input-home">

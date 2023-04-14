@@ -1,3 +1,4 @@
+import "./styles.css";
 import { useState } from "react";
 import document from "../../assets/document.svg";
 import OfertaPagamentoParcelas from "./ofertaPagamentoParcelas";
@@ -39,26 +40,28 @@ export default function ContratoDisplay(props) {
           <h1 className="titulo_opcoes_pagamento">
             Como você quer pagar suas parcelas?
           </h1>
-          <form className="botoes">
-            <label className="btn-trocar-tela">
+          <form id="botoes">
+            <div id="box1">
               <input
                 type="radio"
                 name="opcao"
                 value="1"
+                id="radio1"
                 onChange={handleChangeInput}
                 defaultChecked={true}
-              />{" "}
-              Pagamento das Parcelas
-            </label>
-            <label className="btn-trocar-tela">
+              />
+              <label for="radio1">Pagamento das Parcelas</label>
+            </div>
+            <div id="box1">
               <input
                 type="radio"
                 name="opcao"
+                id="radio2"
                 value="2"
                 onChange={handleChangeInput}
-              />{" "}
-              Renegociação seu contrato
-            </label>
+              />
+              <label for="radio2">Renegociação do seu contrato</label>
+            </div>
           </form>
         </div>
       </div>
