@@ -4,13 +4,13 @@ import document from "../../assets/document.svg";
 import OfertaPagamentoParcelas from "./ofertaPagamentoParcelas";
 import OfertaRenegociaDivida from "./ofertaRenegociacaoDivida";
 import QuitarContrato from "./quitarContrato";
+const abas = {
+  pagamentoParcelas: "pagamentoParcelas",
+  renegociacaoContrato: "renegociacaoContrato",
+};
 
 export default function ContratoDisplay(props) {
-  const [inputOption, setInputOption] = useState("1");
-
-  const handleChangeInput = (event) => {
-    setInputOption(event.target.value);
-  };
+  const [inputOption, setInputOption] = useState(abas.pagamentoParcelas);
 
   function textoQuantidadeDeParcelas(parcelas) {
     const quantidade = parcelas.length;
@@ -41,31 +41,46 @@ export default function ContratoDisplay(props) {
             Como você quer pagar suas parcelas?
           </h1>
           <form id="botoes">
-            <div id="box1">
+            <div
+              onClick={() => {
+                setInputOption(abas.pagamentoParcelas);
+              }}
+              className="box1"
+            >
               <input
                 type="radio"
                 name="opcao"
-                value="1"
+                value={abas.pagamentoParcelas}
                 id="radio1"
-                onChange={handleChangeInput}
+                onChange={() => {}}
+                checked={inputOption === abas.pagamentoParcelas}
                 defaultChecked={true}
+                htmlFor="radio1"
               />
-              <label for="radio1">Pagamento das Parcelas</label>
+              <label htmlFor="radio1">Pagamento das Parcelas</label>
             </div>
-            <div id="box1">
+            <div
+              onClick={() => {
+                setInputOption(abas.renegociacaoContrato);
+              }}
+              className="box1"
+            >
               <input
                 type="radio"
                 name="opcao"
                 id="radio2"
-                value="2"
-                onChange={handleChangeInput}
+                htmlFor="radio2"
+                value={abas.renegociacaoContrato}
+                onChange={() => {}}
+                checked={inputOption === abas.renegociacaoContrato}
+                defaultChecked={false}
               />
-              <label for="radio2">Renegociação do seu contrato</label>
+              <label htmlFor="radio2">Renegociação do seu contrato</label>
             </div>
           </form>
         </div>
       </div>
-      {inputOption === "1" ? (
+      {inputOption === abas.pagamentoParcelas ? (
         <>
           <OfertaPagamentoParcelas contrato={props.contrato} />{" "}
           <QuitarContrato />

@@ -159,7 +159,7 @@ input[type="radio"] {
     justify-content: space-between;
     align-items: center;
 }
-#box1 {
+.box1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -167,4 +167,5 @@ input[type="radio"] {
      border-radius: 1.5em;
      width: 25%;
      height: 100%;
+     cursor: pointer;
 }
