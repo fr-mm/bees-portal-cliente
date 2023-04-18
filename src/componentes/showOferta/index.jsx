@@ -68,7 +68,7 @@ export default function ShowOferta() {
             </p>
           </div>
           <h1 className="titulo-nome-cliente">
-            Boas vindas {searchResult.cliente.nome}
+            Bem vindo(a) {searchResult.cliente.nome}
           </h1>
           {searchResult.contratos.map((contrato) => (
             <ContratoDisplay key={contrato.numero} contrato={contrato} />

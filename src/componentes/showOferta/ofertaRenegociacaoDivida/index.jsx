@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import ReactSlider from "react-slider";
 import BlackButton from "../../blackButton/BlackButton";
 import MoneyDisplay from "./moneyDisplay";
-import { criarArraySequencial, format } from "../../../auxiliar";
+import { format } from "../../../auxiliar";
 import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 import Loader from "../../Loader";

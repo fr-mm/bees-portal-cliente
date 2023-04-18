@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import ProcessamentoReq from "../../componentes/ProcessamentoReq";
 import { BuscaInvalidaErro } from "../../dominio/erros";
 import { ModalSimples } from "../../componentes/modal";
-import Loader from "../../componentes/Loader";
 
 class ErrorModalMessage {
   title;
@@ -30,8 +29,7 @@ function Home() {
   const [searchType, setSearchType] = useState(tipoDeBuscaEnum.cpfCnpj);
   const [currentTestimonial, setCurrentTestimonial] = useState({
     title: "Fácil de usar",
-    text:
-      "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
+    text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
     img: "/img/SVG_Graphic.svg",
   });
   const validacaoMap = new Map();
@@ -118,15 +116,13 @@ function Home() {
   const testimonials = [
     {
       title: "Fácil de usar",
-      text:
-        "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
+      text: "Sabemos que ter dívidas tira o sono de qualquer um e que cada centavo de economia conta. Pensando nisso, oferecemos um ambiente simples e seguro para que você possa focar apenas em regularizar sua água.",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },
     {
       title: "100% seguro",
-      text:
-        "É rápido e fácil. As parcelas são submetidas a uma análise para garantir a melhor segurança de que você está pagando corretamente",
+      text: "É rápido e fácil. As parcelas são submetidas a uma análise para garantir a melhor segurança de que você está pagando corretamente",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },
@@ -138,7 +134,7 @@ function Home() {
     },
     {
       title: "Sem constrangimento",
-      text: "Sem telefonemas, sem filas de banco.",
+      text: "Sem telefonemas e sem filas de banco",
       img: "/img/SVG_Graphic.svg",
       styl: "",
     },
@@ -221,10 +217,10 @@ function Home() {
       <div className="scream-busca-cpf">
         <div className="container-title">
           <h1>NEGOCIE AGORA</h1>
-          <h3>Aproveite, é simples mantenha seu nome limpo.</h3>
+          <h3>Veja como é simples negociar os valores em aberto</h3>
         </div>
         <div className="container-busca-cpf">
-          <h5>CONSULTE SUAS FATURAS EM ABERTO</h5>
+          <h5>CONSULTE SUAS DÍVIDAS</h5>
           <p>Informe abaixo seu CPF/CNPJ ou número do contrato</p>
 
           <form className="container-radio-home">

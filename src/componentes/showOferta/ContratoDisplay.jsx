@@ -56,7 +56,7 @@ export default function ContratoDisplay(props) {
                 checked={inputOption === abas.pagamentoParcelas}
                 htmlFor="radio1"
               />
-              <label htmlFor="radio1">Pagamento das Parcelas</label>
+              <label htmlFor="radio1">Pagamento das Parcelas em atraso</label>
             </div>
             <div
               onClick={() => {

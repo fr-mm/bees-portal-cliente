@@ -7,7 +7,9 @@ function TelaSucesso(props) {
     <div className="sucesso center">
       <div className="sucesso message">
         <AiOutlineCheckCircle id="sucesso-checked" />
-        <h1 className="sucesso green">Seu novo contrato foi gerado!</h1>
+        <h1 className="sucesso green">
+          Seu novo contrato foi gerado com sucesso!
+        </h1>
         <p>
           Enviaremos uma cópia por e-mail e incluiremos as opções de pagamento.
         </p>
