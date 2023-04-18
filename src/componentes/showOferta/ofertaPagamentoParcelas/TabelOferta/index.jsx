@@ -14,7 +14,7 @@ export default function TabelaParcelas(props) {
             </tr>
           </thead>
           <tbody>
-            {props.contrato.parcelas.todas.map((parcela) => {
+            {props.contrato.parcelas.inadimplentes.map((parcela) => {
               return (
                 <tr key={parcela.numero}>
                   <td>{parcela.numero}</td>
@@ -29,4 +29,3 @@ export default function TabelaParcelas(props) {
     </div>
   );
 }
-
