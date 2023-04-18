@@ -11,7 +11,7 @@ function OfertaPagamentoParcelas(props) {
       </p>
       <div className="container_lista">
         <div className="total_parcelas_atrasada">
-          <p className="titulo__">O total das parcelas atrasadas é de</p>
+          <p className="titulo__">O total das parcelas atrasadas é de:</p>
           <p className="valor_parcela">
             {format.money(props.contrato.valor.emAtraso)}
           </p>
