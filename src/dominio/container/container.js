@@ -1,5 +1,8 @@
 import { FakeBackendAPI } from "../apis";
-import { calcularQtdDeParcelasPossiveis } from "../calculos";
+import {
+  calcularEntradaMinima,
+  calcularQtdDeParcelasPossiveis,
+} from "../calculos";
 import {
   CasoDeUsoBuscarContratos,
   CasoDeUsoGerarAcordo,
@@ -43,6 +46,7 @@ const container = {
   },
   calcular: {
     qtdsDeParcelasPossiveis: calcularQtdDeParcelasPossiveis,
+    entradaMinima: calcularEntradaMinima,
   },
 };
 

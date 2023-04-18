@@ -19,6 +19,7 @@ export default function OfertaRenegociaDivida(props) {
   );
   const [qtdParcelas, setQtdParcelas] = useState(qtdsDeParcelasPossiveis[0]);
   const [entradaValue, setEntradaValue] = useState(0);
+  const [entradaMinima, setEntradaMinima] = useState(0);
   const [simulacoes, setSimulacoes] = useState();
   const [simulacao, setSimulacao] = useState();
   const [modalTelefone, setModalTelefone] = useState(false);
@@ -74,6 +75,11 @@ export default function OfertaRenegociaDivida(props) {
     setFetching(false);
     setSimulacoes(otdSaida.simulacoes);
     setSimulacao(otdSaida.simulacoes[0]);
+    const minima = container.calcular.entradaMinima(
+      props.contrato.valor.emAtraso
+    );
+    setEntradaValue(minima);
+    setEntradaMinima(minima);
   }, [entradaValue, props.contrato, qtdsDeParcelasPossiveis]);
 
   useEffect(() => {
@@ -164,7 +170,8 @@ export default function OfertaRenegociaDivida(props) {
             className="slider"
             thumbClassName="thumb"
             trackClassName="track"
-            max={200}
+            min={entradaMinima}
+            max={props.contrato.valor.emAtraso}
             onChange={sliderOnChange}
             renderThumb={(props, state) => (
               <div {...props}>
