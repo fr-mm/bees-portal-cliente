@@ -10,6 +10,7 @@ export default function TabelaParcelas(props) {
             <tr>
               <th>Parcela</th>
               <th>Status</th>
+              <th>Data de vencimento</th>
               <th>Valor</th>
             </tr>
           </thead>
@@ -19,6 +20,7 @@ export default function TabelaParcelas(props) {
                 <tr key={parcela.numero}>
                   <td>{parcela.numero}</td>
                   <td>{parcela.status}</td>
+                  <td>{format.date(parcela.dataDeVencimento)}</td>
                   <td>{format.money(parcela.valor)}</td>
                 </tr>
               );
