@@ -81,7 +81,7 @@ export default function ContratoDisplay(props) {
       {inputOption === abas.pagamentoParcelas ? (
         <>
           <OfertaPagamentoParcelas contrato={props.contrato} />{" "}
-          <QuitarContrato />
+          <QuitarContrato contrato={props.contrato} />
         </>
       ) : (
         <OfertaRenegociaDivida contrato={props.contrato} />
