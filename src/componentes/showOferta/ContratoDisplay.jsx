@@ -54,7 +54,6 @@ export default function ContratoDisplay(props) {
                 id="radio1"
                 onChange={() => {}}
                 checked={inputOption === abas.pagamentoParcelas}
-                defaultChecked={true}
                 htmlFor="radio1"
               />
               <label htmlFor="radio1">Pagamento das Parcelas</label>
@@ -73,7 +72,6 @@ export default function ContratoDisplay(props) {
                 value={abas.renegociacaoContrato}
                 onChange={() => {}}
                 checked={inputOption === abas.renegociacaoContrato}
-                defaultChecked={false}
               />
               <label htmlFor="radio2">Renegociação do seu contrato</label>
             </div>
