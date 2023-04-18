@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import ReactSlider from "react-slider";
 import BlackButton from "../../blackButton/BlackButton";
 import MoneyDisplay from "./moneyDisplay";
-import { format } from "../../../auxiliar";
+import { criarArraySequencial, format } from "../../../auxiliar";
 import container from "../../../dominio/container";
 import { SimularAcordoOTDEntrada } from "../../../dominio/otds/simularAcordoOTD";
 import Loader from "../../Loader";
@@ -14,8 +14,8 @@ import ModalTelefone from "../../modal/modalTelefoneEmail";
 import TelaSucesso from "../../telaSucesso";
 
 export default function OfertaRenegociaDivida(props) {
-  const qtdsDeParcelasPossiveis = container.calcular.qtdsDeParcelasPossiveis(
-    props.contrato
+  const [qtdsDeParcelasPossiveis, setQtdsDeParcelasPossivels] = useState(
+    criarArraySequencial({ min: 2, max: 24 })
   );
   const [qtdParcelas, setQtdParcelas] = useState(qtdsDeParcelasPossiveis[0]);
   const [entradaValue, setEntradaValue] = useState(0);

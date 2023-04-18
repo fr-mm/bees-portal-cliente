@@ -3,6 +3,7 @@ import PayloadInvalidoErro from "./payloadInvalidoErro";
 import FalhaDeAutorizacaoErro from "./falhaDeAutorizacaoErro";
 import MetodoAbstratoNaoImplemenetadoErro from "./metodoAbstratoNaoImplementadoErro";
 import BuscaInvalidaErro from "./buscaInvalidaErro";
+import ValorMuitoBaixoParaDividirErro from "./valorMuitoBaixoParaDividirErro";
 
 export {
   BuscaSemResutadoErro,
@@ -10,4 +11,5 @@ export {
   FalhaDeAutorizacaoErro,
   MetodoAbstratoNaoImplemenetadoErro,
   BuscaInvalidaErro,
+  ValorMuitoBaixoParaDividirErro,
 };
