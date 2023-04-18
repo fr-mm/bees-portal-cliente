@@ -15,7 +15,10 @@ import TelaSucesso from "../../telaSucesso";
 
 export default function OfertaRenegociaDivida(props) {
   const [qtdsDeParcelasPossiveis, setQtdsDeParcelasPossivels] = useState(
-    criarArraySequencial({ min: 2, max: 24 })
+    container.calcular.qtdsDeParcelasPossiveis({
+      valorTotal: props.contrato.valor.emAtraso,
+      entrada: container.calcular.entradaMinima(props.contrato.valor.emAtraso),
+    })
   );
   const [qtdParcelas, setQtdParcelas] = useState(qtdsDeParcelasPossiveis[0]);
   const [entradaValue, setEntradaValue] = useState(0);
@@ -57,6 +60,13 @@ export default function OfertaRenegociaDivida(props) {
   }
 
   function sliderOnChange(value) {
+    const novaQtdParcelasPossiveis = container.calcular.qtdsDeParcelasPossiveis(
+      {
+        valorTotal: props.contrato.valor.emAtraso,
+        entrada: value,
+      }
+    );
+    setQtdsDeParcelasPossivels(novaQtdParcelasPossiveis);
     setEntradaValue(value);
     setSimulacoes();
     setSimulacao();
