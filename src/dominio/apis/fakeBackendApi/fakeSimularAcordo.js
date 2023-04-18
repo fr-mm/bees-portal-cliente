@@ -1,9 +1,15 @@
 import { faker } from "@faker-js/faker";
 
 export default function fakeSimularAcordo(otdEntrada) {
-  return otdEntrada.qtdParcelasPossiveis.map((qtdParcelas) =>
-    criarFakeSimulacao({ entrada: otdEntrada.entrada, qtdParcelas })
-  );
+  const simulacoes = [];
+  for (let qtdParcelas of otdEntrada.qtdParcelasPossiveis) {
+    const simulacao = criarFakeSimulacao({
+      entrada: otdEntrada.entrada,
+      qtdParcelas,
+    });
+    simulacoes.push(simulacao);
+  }
+  return simulacoes;
 }
 
 export function criarFakeSimulacao({ entrada, qtdParcelas }) {

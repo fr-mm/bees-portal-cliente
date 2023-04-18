@@ -7,6 +7,7 @@ describe("fakeSimularAcordo", () => {
   beforeAll(() => {
     otdEntrada = {
       entrada: faker.datatype.number({ min: 0, max: 5000 }),
+      qtdParcelasPossiveis: Array.from(Array(23).keys(), (x) => x + 2),
     };
   });
   test("retorna objetos preenchidos", () => {
