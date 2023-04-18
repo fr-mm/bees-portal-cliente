@@ -1,72 +1,81 @@
-.container_tabela{
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #C6C1CF;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding-left: 2rem;
-    max-height: 500px;
-    background-color: #F7F7F7;
-    
+.container_tabela {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c6c1cf;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 2em;
+  padding-right: 2em;
+  max-height: 500px;
+  background-color: #f7f7f7;
 }
 
-.container_tabela h1{
-    color: #424242;
-    font-family: "Work Sans";
-    font-size: 16px;
-    letter-spacing: 0.1px;
-    line-height: 24px;
-    margin-top: 2rem;
+.container_tabela h1 {
+  color: #424242;
+  font-family: "Work Sans";
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  margin-top: 2rem;
 }
 
 .tabela-wrapper {
-    max-height: 300px;
-    overflow-y: auto;
-    padding-left: 2rem;
-    scrollbar-color: rebeccapurple green;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-left: 2rem;
+  scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
+}
+
+.checkbox-cell {
+  width: 1em;
+  text-align: center;
+}
+
+.th-selecionar {
+  cursor: pointer;
+  user-select: none;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
-    
+  border-collapse: collapse;
+  width: 100%;
 }
 
-th, td {
-    text-align: left;
-    padding: 7px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+th,
+td {
+  text-align: left;
+  padding: 7px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 th {
-    font-weight: bold;
-    background-color: #F7F7F7;
+  font-weight: bold;
+  background-color: #f7f7f7;
 }
 
 tbody {
-    overflow-x: hidden;
-    
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 999px;
-  }
-  
-  /* Cor da trilha da barra de rolagem */
-  body::-webkit-scrollbar-track {
-    background-color: #eee;
-  }
-  
-  /* Largura da bolinha da barra de rolagem */
-  body::-webkit-scrollbar-thumb {
-    width: 10px;
-  }
-  
-  /* Largura da trilha da barra de rolagem */
-  body::-webkit-scrollbar-track {
-    width: 10px;
-  }
+  background-color: #555;
+  border-radius: 999px;
+}
+
+/* Cor da trilha da barra de rolagem */
+body::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+/* Largura da bolinha da barra de rolagem */
+body::-webkit-scrollbar-thumb {
+  width: 10px;
+}
+
+/* Largura da trilha da barra de rolagem */
+body::-webkit-scrollbar-track {
+  width: 10px;
+}

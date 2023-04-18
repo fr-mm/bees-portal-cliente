@@ -1,4 +1,5 @@
 import { format } from "../../../../auxiliar";
+import ParcelaCheckbox from "./ParcelaCheckbox";
 import "./styles.css";
 export default function TabelaParcelas(props) {
   return (
@@ -12,6 +13,12 @@ export default function TabelaParcelas(props) {
               <th>Status</th>
               <th>Data de vencimento</th>
               <th>Valor</th>
+              <th
+                className="th-selecionar"
+                onClick={props.selecionarOuDesselecionarTodas}
+              >
+                Selecionar
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -22,6 +29,14 @@ export default function TabelaParcelas(props) {
                   <td>{parcela.status}</td>
                   <td>{format.date(parcela.dataDeVencimento)}</td>
                   <td>{format.money(parcela.valor)}</td>
+                  <td className="checkbox-cell">
+                    <ParcelaCheckbox
+                      parcela={parcela}
+                      selecionarParcela={props.selecionarParcela}
+                      desselecionarParcela={props.desselecionarParcela}
+                      checked={props.parcelasSelecionadas.includes(parcela)}
+                    />
+                  </td>
                 </tr>
               );
             })}
